@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+.env
+.neo4j/
+.DS_Store
+*.log
+yarn-error.log
+yarn-debug.log

@@ -1,0 +1,192 @@
+# learn-graph-databases
+
+A teaching repository for graph databases, Neo4j, Cypher, graph modelling, and practical graph-based applications.
+
+## What this repository teaches
+
+This repository is designed as a practical course-style codebase. It focuses on:
+
+- graph database fundamentals
+- graph modelling
+- Cypher querying
+- local Neo4j usage with Docker Compose
+- TypeScript integration with Neo4j
+- small applied graph examples
+
+The goal is not only to explain graph databases, but to teach how to **think in graphs** and how to implement real examples.
+
+## Who this is for
+
+This repository is suitable for:
+
+- developers learning graph databases for the first time
+- data professionals who want to understand graph modelling
+- engineers who want to learn Neo4j and Cypher
+- teachers who want reusable teaching material
+
+## Stack
+
+- Neo4j
+- Cypher
+- TypeScript
+- Node.js
+- Yarn
+- Docker Compose
+
+## Repository structure
+
+```text
+learn-graph-databases/
+├── README.md
+├── ROADMAP.md
+├── docker-compose.yml
+├── .env.example
+├── package.json
+├── tsconfig.json
+├── docs/
+├── lessons/
+├── examples/
+├── src/
+├── tests/
+└── assets/
+```
+
+## Learning path
+
+A suggested order is:
+
+1. Read the documents in `docs/`
+2. Work through the lessons in `lessons/`
+3. Start Neo4j locally
+4. Seed the example datasets
+5. Run the Cypher queries
+6. Read the TypeScript integration code
+7. Extend the examples with your own models
+
+## Quick start
+
+### 1. Copy the environment file
+
+```bash
+cp .env.example .env
+```
+
+### 2. Start Neo4j
+
+```bash
+docker compose up -d
+```
+
+Neo4j Browser will be available at:
+
+- `http://localhost:7474`
+
+Bolt will be available at:
+
+- `bolt://localhost:7687`
+
+### 3. Install dependencies
+
+```bash
+yarn install
+```
+
+### 4. Ping the database
+
+```bash
+yarn ping
+```
+
+### 5. Seed the movie example
+
+```bash
+yarn seed:movies
+```
+
+### 6. Run example queries
+
+```bash
+yarn query:movies
+```
+
+## Default local credentials
+
+The Docker setup uses the values from `.env.example`:
+
+- username: `neo4j`
+- password: `password123`
+
+Change them before using this beyond local development.
+
+## Scripts
+
+```bash
+yarn dev
+yarn build
+yarn typecheck
+yarn ping
+yarn seed:movies
+yarn seed:fraud
+yarn seed:supply
+yarn query:movies
+yarn test
+```
+
+## Teaching design
+
+Each lesson follows the same structure:
+
+1. concept
+2. why it matters
+3. small example
+4. Cypher queries
+5. exercises
+6. common mistakes
+
+This keeps the repository consistent and easy to teach from.
+
+## Initial examples
+
+### Movie graph
+Good for beginners. It teaches:
+
+- people
+- movies
+- genres
+- acting relationships
+- recommendation-style traversal
+
+### Fraud graph
+Good for showing why graph databases matter. It teaches:
+
+- shared identifiers
+- connection patterns
+- suspicious clusters
+- multi-hop reasoning
+
+### Supply chain graph
+Good for dependency and path thinking. It teaches:
+
+- suppliers
+- components
+- factories
+- disruption analysis
+- upstream and downstream traversal
+
+## Notes for instructors
+
+A good teaching sequence is:
+
+- start with the movie graph
+- compare graph vs relational thinking
+- introduce pattern matching with Cypher
+- move to fraud detection to show practical value
+- finish with a domain-specific modelling exercise
+
+## Roadmap
+
+See `ROADMAP.md`.
+
+## License
+
+MIT

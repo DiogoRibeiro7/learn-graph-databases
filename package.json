@@ -1,0 +1,33 @@
+{
+  "name": "learn-graph-databases",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Teaching repository for graph databases, Neo4j, Cypher, graph modelling, and practical graph-based applications.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/scripts/ping.ts",
+    "typecheck": "tsc --noEmit",
+    "ping": "tsx src/scripts/ping.ts",
+    "seed:movies": "tsx src/scripts/seedMovies.ts",
+    "seed:fraud": "tsx src/scripts/seedFraud.ts",
+    "seed:supply": "tsx src/scripts/seedSupplyChain.ts",
+    "query:movies": "tsx src/scripts/runMovieQueries.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "neo4j-driver": "^5.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}
