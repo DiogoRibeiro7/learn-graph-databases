@@ -13,7 +13,8 @@ function toObject(record: Neo4jRecord): Record<string, unknown> {
   const output: Record<string, unknown> = {};
 
   for (const key of record.keys) {
-    output[key] = record.get(key);
+    const safeKey = String(key);
+    output[safeKey] = record.get(key);
   }
 
   return output;
