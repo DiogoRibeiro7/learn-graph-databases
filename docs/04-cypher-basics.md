@@ -51,6 +51,32 @@ ORDER BY movieCount DESC
 
 This returns actor names and the number of movies they acted in.
 
+## CREATE
+
+`CREATE` adds new nodes or relationships to the graph. Use it when you are sure the data does not already exist.
+
+Example:
+
+```cypher
+CREATE (p:Person {name: "Alice", born: 1985})
+```
+
+This creates a new person node with a name and birth year.
+
+## MERGE
+
+`MERGE` ensures a pattern exists. If the pattern is already present, it does not create a duplicate. If it is missing, it creates it.
+
+Example:
+
+```cypher
+MERGE (p:Person {name: "Alice"})
+MERGE (m:Movie {title: "The Matrix"})
+MERGE (p)-[:ACTED_IN]->(m)
+```
+
+Use `MERGE` when you want to create data only if it is not already present.
+
 ## Why this matters
 
 The shape of the query resembles the shape of the graph. That makes Cypher easier to read and easier to map back to a real model.

@@ -45,6 +45,32 @@ ORDER BY orderCount DESC
 
 This returns each customer and how many orders they placed.
 
+## CREATE
+
+`CREATE` adds new nodes or relationships to the graph. Use it when you want to add new data and you know it does not already exist.
+
+Example:
+
+```cypher
+CREATE (c:Customer {name: "Alice", country: "USA"})
+```
+
+This creates a new customer node.
+
+## MERGE
+
+`MERGE` ensures a pattern exists without creating duplicates. If the node or relationship already exists, it uses the existing one. If not, it creates it.
+
+Example:
+
+```cypher
+MERGE (c:Customer {name: "Alice"})
+MERGE (o:Order {orderId: "O1001"})
+MERGE (c)-[:PLACED]->(o)
+```
+
+Use `MERGE` for idempotent writes when you want to avoid duplicate nodes or relationships.
+
 ## Why it matters
 
 This style of query keeps the graph structure visible in the query itself.

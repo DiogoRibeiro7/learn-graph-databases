@@ -14,3 +14,11 @@ RETURN ip.value, orderCount;
 
 MATCH (c:Customer)-[:PLACED]->(o:Order)-[:PAID_WITH]->(cc:CreditCard)
 RETURN c.name, cc.cardHash;
+
+CREATE (c:Customer {name: "Alice", country: "USA"})
+CREATE (o:Order {orderId: "O1001", totalAmount: 150})
+CREATE (c)-[:PLACED]->(o);
+
+MERGE (c:Customer {name: "Alice"})
+MERGE (m:Movie {title: "The Matrix"})
+MERGE (c)-[:ACTED_IN]->(m);
