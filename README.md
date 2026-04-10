@@ -57,6 +57,22 @@ A suggested order is:
 
 1. Read the documents in `docs/`
 2. Work through the lessons in `lessons/`
+   - start with `lesson_01_intro`
+   - then `lesson_02_modelling`
+   - continue with `lesson_03_cypher`
+   - finish with `lesson_04_graph_algorithms`
+
+See `lessons/README.md` for a lesson index and quick navigation.
+
+Lesson overview:
+
+| Lesson | Topic | File |
+| --- | --- | --- |
+| Lesson 01 | Introduction to graph databases | `lessons/lesson_01_intro/lesson.md` |
+| Lesson 02 | Graph modelling | `lessons/lesson_02_modelling/lesson.md` |
+| Lesson 03 | Cypher basics | `lessons/lesson_03_cypher/lesson.md` |
+| Lesson 04 | Graph algorithms basics | `lessons/lesson_04_graph_algorithms/lesson.md` |
+
 3. Start Neo4j locally
 4. Seed the example datasets
 5. Run the Cypher queries
@@ -180,6 +196,7 @@ A good teaching sequence is:
 - start with the movie graph
 - compare graph vs relational thinking
 - introduce pattern matching with Cypher
+- explore graph algorithms and path analysis
 - move to fraud detection to show practical value
 - finish with a domain-specific modelling exercise
 

@@ -19,4 +19,20 @@ export const movieQueries = {
     RETURN m.title AS movie, m.year AS year
     ORDER BY year
   `,
+  genreMovieCounts: `
+    MATCH (m:Movie)-[:IN_GENRE]->(g:Genre)
+    WITH g.name AS genre, count(m) AS movieCount
+    RETURN genre, movieCount
+    ORDER BY movieCount DESC
+  `,
+  moviesByGenre: `
+    MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {name: $genre})
+    RETURN m.title AS movie, m.year AS year
+    ORDER BY year
+  `,
+  moviesByActor: `
+    MATCH (p:Person {name: $actor})-[:ACTED_IN]->(m:Movie)
+    RETURN m.title AS movie, m.year AS year
+    ORDER BY year
+  `,
 } as const;
