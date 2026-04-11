@@ -1,8 +1,9 @@
 # Exercises
 
 1. Write a query that finds the shortest path between two customers using up to three hops.
-2. Write a query that returns customers ordered by the number of orders they placed.
-3. Write a query that finds pairs of customers who share the same order.
+2. Explain why `shortestPath()` is best for unweighted routes and name a GDS algorithm for weighted shortest paths.
+3. Write a query that returns customers ordered by the number of orders they placed.
+4. Write a query that finds pairs of customers who share the same order.
 
 # Answers
 
@@ -13,6 +14,8 @@ MATCH (a:Customer {name: "Alice"}), (b:Customer {name: "Bruno"})
 MATCH p = shortestPath((a)-[:PLACED*..3]-(b))
 RETURN p
 ```
+
+2. `shortestPath()` finds the route with the fewest relationships, not the lowest numeric cost. For weighted paths, use a GDS algorithm such as Dijkstra.
 
 2. Example answer:
 

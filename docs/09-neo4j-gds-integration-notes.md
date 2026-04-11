@@ -68,6 +68,36 @@ GDS is not a replacement for core Cypher queries; it complements them with analy
 - Results can be streamed, written back to the graph, or exported for downstream processing.
 - Neo4j Desktop or AuraDS may require separate GDS installation or license depending on edition.
 
+## Shortest path with GDS
+
+Cypher's `shortestPath()` is useful for finding the route with the fewest hops, but it does not account for numeric weights.
+When relationships carry a `distance`, `cost`, or `duration` property, use a weighted shortest-path algorithm such as Dijkstra.
+
+Example:
+
+```cypher
+MATCH (source:Supplier {name: "North Metals"}), (target:Supplier {name: "Blue Circuits"})
+CALL gds.graph.project(
+  'supplyChainGraph',
+  ['Supplier', 'Factory', 'Component'],
+  {
+    SUPPLIES: {orientation: 'UNDIRECTED'},
+    USES: {orientation: 'UNDIRECTED'}
+  }
+)
+YIELD graphName
+CALL gds.shortestPath.dijkstra.stream('supplyChainGraph', {
+  sourceNode: id(source),
+  targetNode: id(target),
+  relationshipWeightProperty: 'distance'
+})
+YIELD nodeId, cost
+RETURN gds.util.asNode(nodeId).name AS name, cost;
+```
+
+This example computes the least-cost route through a projected graph.
+Use `shortestPath()` for unweighted hop-based routes, and use Dijkstra when weights matter.
+
 ## Examples of GDS use cases
 
 - **Recommendation systems**: using similarity, embeddings, or link prediction.

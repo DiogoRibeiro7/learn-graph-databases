@@ -13,6 +13,8 @@
 - `USES`
 - `SHIPS`
 
+Relationships such as `SUPPLIES` can also carry numeric properties like `distance` or `cost` for weighted pathfinding examples.
+
 ## Example questions
 
 - Which suppliers affect a given factory?

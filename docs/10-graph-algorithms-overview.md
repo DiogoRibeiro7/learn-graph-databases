@@ -14,7 +14,8 @@ They are a key part of graph analytics and can be used with Neo4j's Cypher queri
 ### Pathfinding
 
 - **Shortest path** algorithms for the least-cost route
-- Example: `shortestPath()` in Cypher
+- Example: `shortestPath()` in Cypher for unweighted hop-based routing
+- Use Dijkstra or other weighted shortest-path algorithms when relationship `cost` or `distance` is important
 - Use cases: logistics, route planning, and impact analysis
 
 ### Centrality

@@ -23,10 +23,40 @@ Example:
 ```cypher
 MATCH (a:Customer {name: "Alice"}), (b:Customer {name: "Bruno"})
 MATCH p = shortestPath((a)-[:PLACED*..3]-(b))
-RETURN p
+RETURN p, length(p) AS hops
 ```
 
-This finds the shortest route between two customers through up to three `PLACED` relationships.
+This finds the shortest route between two customers through up to three `PLACED` relationships and returns the hop count.
+
+### Weighted vs unweighted shortest paths
+
+`shortestPath()` only finds the path with the fewest relationships, not the path with the lowest numerical cost.
+If relationships carry a numeric weight such as `distance`, `cost`, or `duration`, use a weighted path algorithm instead.
+
+Example using Neo4j Graph Data Science (GDS) Dijkstra:
+
+```cypher
+MATCH (source:Supplier {name: "North Metals"}), (target:Supplier {name: "Blue Circuits"})
+CALL gds.graph.project(
+  'supplyChainGraph',
+  ['Supplier', 'Factory', 'Component'],
+  {
+    SUPPLIES: {orientation: 'UNDIRECTED'},
+    USES: {orientation: 'UNDIRECTED'}
+  }
+)
+YIELD graphName
+CALL gds.shortestPath.dijkstra.stream('supplyChainGraph', {
+  sourceNode: id(source),
+  targetNode: id(target),
+  relationshipWeightProperty: 'distance'
+})
+YIELD nodeId, cost
+RETURN gds.util.asNode(nodeId).name AS name, cost;
+```
+
+This computes the least-cost route when relationships have a numeric `distance` or `cost` property.
+Use `shortestPath()` for unweighted hop-based routes, and use GDS Dijkstra when weights matter.
 
 ## Degree centrality
 
