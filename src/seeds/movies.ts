@@ -1,6 +1,15 @@
+/**
+ * Movie graph seeding utilities.
+ *
+ * This module creates a small movie graph with people, films, genres, and
+ * relationships that illustrate common Cypher traversal patterns.
+ */
 import type { Driver } from "neo4j-driver";
 import { runQuery } from "../db/session.js";
 
+/**
+ * Cypher payload used to seed the movie graph.
+ */
 const seedCypher = `
   MERGE (ana:Person {name: "Ana"})
   MERGE (bruno:Person {name: "Bruno"})
@@ -23,6 +32,7 @@ const seedCypher = `
  * Seeds the movie example graph.
  *
  * @param driver - Active Neo4j driver.
+ * @returns A promise that resolves when the graph is created.
  */
 export async function seedMovies(driver: Driver): Promise<void> {
   await runQuery(driver, seedCypher);

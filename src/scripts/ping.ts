@@ -1,8 +1,14 @@
+/**
+ * Health-check runner for the Neo4j connection.
+ *
+ * This script verifies that the configured Neo4j instance is reachable and
+ * can execute a minimal Cypher query.
+ */
 import { createDriver } from "../db/driver.js";
 import { runQuery } from "../db/session.js";
 
 /**
- * Simple connectivity check for the local Neo4j instance.
+ * Entry point for the ping script.
  */
 async function main(): Promise<void> {
   const driver = createDriver();

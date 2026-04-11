@@ -1,5 +1,7 @@
 # learn-graph-databases
 
+[![CI](https://github.com/DiogoRibeiro7/learn-graph-databases/actions/workflows/ci.yml/badge.svg)](https://github.com/DiogoRibeiro7/learn-graph-databases/actions/workflows/ci.yml)
+
 A teaching repository for graph databases, Neo4j, Cypher, graph modelling, and practical graph-based applications.
 
 ## What this repository teaches
