@@ -31,3 +31,8 @@ Each lesson follows this pattern:
 ## How to use
 
 Open the lesson files in order and run the example Cypher queries against a seeded Neo4j database.
+
+## Visual aids
+
+Visual diagrams for the example domains are available in `assets/diagrams/`.
+Use them as a companion while reading the lesson content and exploring the example graphs.
