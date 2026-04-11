@@ -1,8 +1,25 @@
 # learn-graph-databases
 
 [![CI](https://github.com/DiogoRibeiro7/learn-graph-databases/actions/workflows/ci.yml/badge.svg)](https://github.com/DiogoRibeiro7/learn-graph-databases/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/DiogoRibeiro7/learn-graph-databases)](https://github.com/DiogoRibeiro7/learn-graph-databases/blob/develop/LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
+[![Neo4j](https://img.shields.io/badge/Neo4j-5.x-blue)](https://neo4j.com/)
 
 A teaching repository for graph databases, Neo4j, Cypher, graph modelling, and practical graph-based applications.
+
+## Table of Contents
+
+- [What this repository teaches](#what-this-repository-teaches)
+- [Who this is for](#who-this-is-for)
+- [Stack](#stack)
+- [Repository structure](#repository-structure)
+- [Learning path](#learning-path)
+- [Quick start](#quick-start)
+- [Scripts](#scripts)
+- [Teaching design](#teaching-design)
+- [Initial examples](#initial-examples)
+- [Notes for instructors](#notes-for-instructors)
+- [Contributing](#contributing)
 
 ## What this repository teaches
 
@@ -149,6 +166,10 @@ yarn seed:supply
 yarn query:movies
 yarn test
 ```
+
+## Contributing
+
+If you want to help improve the repository, please read [CONTRIBUTING.md](./CONTRIBUTING.md) and use the provided issue and pull request templates.
 
 ## Teaching design
 
