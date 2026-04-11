@@ -1,8 +1,13 @@
+/**
+ * Seed runner for the movie graph example.
+ *
+ * This script creates the sample movie graph with people, movies, and genres.
+ */
 import { createDriver } from "../db/driver.js";
 import { seedMovies } from "../seeds/movies.js";
 
 /**
- * Seeds the movie graph example.
+ * Entry point for the movie seed script.
  */
 async function main(): Promise<void> {
   const driver = createDriver();
