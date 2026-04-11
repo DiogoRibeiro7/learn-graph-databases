@@ -12,6 +12,9 @@
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/scripts/ping.ts",
     "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "check": "yarn typecheck && yarn lint",
     "ping": "tsx src/scripts/ping.ts",
     "seed:movies": "tsx src/scripts/seedMovies.ts",
     "seed:fraud": "tsx src/scripts/seedFraud.ts",
@@ -26,6 +29,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "eslint": "^8.57.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "vitest": "4.1.3"

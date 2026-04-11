@@ -181,7 +181,38 @@ ORDER BY movie
 
 This returns a single list of movie titles from both genres.
 
+If you want to keep duplicate values, use `UNION ALL`:
+
+```cypher
+MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {name: "Sci-Fi"})
+RETURN m.title AS movie
+UNION ALL
+MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {name: "Drama"})
+RETURN m.title AS movie
+ORDER BY movie
+```
+
+`UNION ALL` is useful when duplicate values are meaningful, such as counting repeated matches.
+
 ## FOREACH
+
+`FOREACH` executes a write operation for each element in a list. It is useful for applying updates or creating patterns from a collection of values.
+
+`FOREACH` is only for executing updates; it does not return rows.
+
+Example:
+
+```cypher
+UNWIND ["Sci-Fi", "Drama", "Action"] AS genreName
+MERGE (g:Genre {name: genreName})
+FOREACH (_ IN CASE WHEN genreName = "Sci-Fi" THEN [1] ELSE [] END |
+  SET g.featured = true
+)
+```
+
+This uses `FOREACH` to set a property only for the `Sci-Fi` genre.
+
+## CREATE
 
 `FOREACH` executes a write operation for each element in a list. It is useful for applying updates or creating patterns from a collection of values.
 
@@ -224,6 +255,16 @@ MERGE (c)-[:PLACED]->(o)
 ```
 
 Use `MERGE` for idempotent writes when you want to avoid creating duplicate nodes or relationships.
+
+`MERGE` can also set properties conditionally using `ON CREATE` and `ON MATCH`:
+
+```cypher
+MERGE (c:Customer {name: "Alice"})
+ON CREATE SET c.created = timestamp()
+ON MATCH SET c.lastSeen = timestamp()
+```
+
+This creates the customer if needed, and updates a timestamp only on existing nodes.
 
 If you only want to read existing data, use `MATCH` instead. `MERGE` can also create relationships as part of its pattern.
 

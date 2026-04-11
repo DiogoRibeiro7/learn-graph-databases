@@ -9,9 +9,11 @@
 7. Write a query using `WITH` to return customers who placed more than one order.
 8. Write a query using `UNWIND` to create or match multiple genres from a list.
 9. Write a query using `UNION` to combine movie titles from two genres.
-10. Write a query using `FOREACH` to set a property on a genre node when a condition is true.
-11. Write a query using aggregation to return customer order counts and total amount spent.
-12. Write a variable-length path query that matches up to two `PLACED` relationships.
+10. Write a query using `UNION ALL` when duplicates matter.
+11. Write a query using `FOREACH` to set a property on a genre node when a condition is true.
+12. Write a query using aggregation to return customer order counts and total amount spent.
+13. Write a `MERGE` query that uses `ON CREATE` and `ON MATCH` to set different timestamps.
+14. Write a variable-length path query that matches up to two `PLACED` relationships.
 
 # Answers
 
@@ -95,6 +97,17 @@ ORDER BY movie
 10. Example answer:
 
 ```cypher
+MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {name: "Sci-Fi"})
+RETURN m.title AS movie
+UNION ALL
+MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {name: "Drama"})
+RETURN m.title AS movie
+ORDER BY movie
+```
+
+11. Example answer:
+
+```cypher
 UNWIND ["Sci-Fi", "Drama", "Action"] AS genreName
 MERGE (g:Genre {name: genreName})
 FOREACH (_ IN CASE WHEN genreName = "Sci-Fi" THEN [1] ELSE [] END |
@@ -102,7 +115,7 @@ FOREACH (_ IN CASE WHEN genreName = "Sci-Fi" THEN [1] ELSE [] END |
 )
 ```
 
-11. Example answer:
+12. Example answer:
 
 ```cypher
 MATCH (c:Customer)-[:PLACED]->(o:Order)
@@ -112,7 +125,15 @@ RETURN c.name AS customer,
 ORDER BY totalSpent DESC
 ```
 
-12. Example answer:
+13. Example answer:
+
+```cypher
+MERGE (c:Customer {name: "Alice"})
+ON CREATE SET c.created = timestamp()
+ON MATCH SET c.lastSeen = timestamp()
+```
+
+14. Example answer:
 
 ```cypher
 MATCH (c:Customer)-[:PLACED*1..2]->(o:Order)

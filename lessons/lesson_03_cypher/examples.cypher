@@ -40,7 +40,7 @@ ORDER BY p.name, movieTitle;
 
 MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {name: "Sci-Fi"})
 RETURN m.title AS movie
-UNION
+UNION ALL
 MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {name: "Drama"})
 RETURN m.title AS movie
 ORDER BY movie;
@@ -50,6 +50,10 @@ MERGE (g:Genre {name: genreName})
 FOREACH (_ IN CASE WHEN genreName = "Sci-Fi" THEN [1] ELSE [] END |
   SET g.featured = true
 );
+
+MERGE (c:Customer {name: "Alice"})
+ON CREATE SET c.created = timestamp()
+ON MATCH SET c.lastSeen = timestamp();
 
 MATCH (c:Customer {name: "Alice"}), (o:Order {orderId: "O1001"})
 MATCH p = shortestPath((c)-[:PLACED*..3]->(o))
