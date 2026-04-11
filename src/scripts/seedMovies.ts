@@ -5,6 +5,7 @@
  */
 import { createDriver } from "../db/driver.js";
 import { seedMovies } from "../seeds/movies.js";
+import { formatNeo4jErrorMessage } from "../db/errors.js";
 
 /**
  * Entry point for the movie seed script.
@@ -22,6 +23,6 @@ async function main(): Promise<void> {
 
 main().catch((error: unknown) => {
   console.error("Failed to seed movie graph.");
-  console.error(error);
+  console.error(error instanceof Error ? formatNeo4jErrorMessage(error) : error);
   process.exitCode = 1;
 });

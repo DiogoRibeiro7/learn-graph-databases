@@ -6,6 +6,7 @@
  */
 import { createDriver } from "../db/driver.js";
 import { runQuery } from "../db/session.js";
+import { formatNeo4jErrorMessage } from "../db/errors.js";
 
 /**
  * Entry point for the ping script.
@@ -29,6 +30,6 @@ async function main(): Promise<void> {
 
 main().catch((error: unknown) => {
   console.error("Failed to connect to Neo4j.");
-  console.error(error);
+  console.error(error instanceof Error ? formatNeo4jErrorMessage(error) : error);
   process.exitCode = 1;
 });
