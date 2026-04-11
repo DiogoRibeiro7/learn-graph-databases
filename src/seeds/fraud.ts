@@ -1,7 +1,16 @@
+/**
+ * Fraud graph seeding utilities.
+ *
+ * This module creates a sample fraud detection graph that illustrates
+ * shared identifiers and suspicious relationship patterns.
+ */
 import type { Driver } from "neo4j-driver";
 import { runQuery } from "../db/session.js";
 import { logger } from "../logging/logger.js";
 
+/**
+ * Cypher payload used to seed the fraud graph.
+ */
 const seedCypher = `
   MERGE (c1:Customer {customerId: "C001", name: "Ana"})
   MERGE (c2:Customer {customerId: "C002", name: "Bruno"})
@@ -24,6 +33,7 @@ const seedCypher = `
  * Seeds the fraud example graph.
  *
  * @param driver - Active Neo4j driver.
+ * @returns A promise that resolves once the fraud graph is created.
  */
 export async function seedFraud(driver: Driver): Promise<void> {
   const result = await runQuery(driver, seedCypher);

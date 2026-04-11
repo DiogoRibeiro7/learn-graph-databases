@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360">
+  <style>
+    .node { fill: #f7e8e8; stroke: #c23b22; stroke-width: 2px; }
+    .rel { fill: #e2f4df; stroke: #2a9d8f; stroke-width: 2px; }
+    .label { font: 14px sans-serif; fill: #333; }
+    .small { font: 12px sans-serif; fill: #333; }
+    .arrow { fill: none; stroke: #333; stroke-width: 2px; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+
+  <rect x="28" y="36" width="160" height="72" rx="14" class="node" />
+  <text x="108" y="60" text-anchor="middle" class="label">Customer</text>
+  <text x="108" y="80" text-anchor="middle" class="small">customerId, name</text>
+
+  <rect x="260" y="36" width="160" height="72" rx="14" class="node" />
+  <text x="340" y="60" text-anchor="middle" class="label">Order</text>
+  <text x="340" y="80" text-anchor="middle" class="small">orderId</text>
+
+  <rect x="492" y="36" width="160" height="72" rx="14" class="node" />
+  <text x="572" y="60" text-anchor="middle" class="label">CreditCard</text>
+  <text x="572" y="80" text-anchor="middle" class="small">cardHash</text>
+
+  <rect x="260" y="180" width="160" height="72" rx="14" class="node" />
+  <text x="340" y="204" text-anchor="middle" class="label">Address</text>
+  <text x="340" y="224" text-anchor="middle" class="small">addressId</text>
+
+  <rect x="492" y="180" width="160" height="72" rx="14" class="node" />
+  <text x="572" y="204" text-anchor="middle" class="label">IP</text>
+  <text x="572" y="224" text-anchor="middle" class="small">value</text>
+
+  <path d="M188 70 H260" class="arrow" />
+  <text x="224" y="58" text-anchor="middle" class="small">PLACED</text>
+
+  <path d="M420 70 H492" class="arrow" />
+  <text x="456" y="58" text-anchor="middle" class="small">PAID_WITH</text>
+
+  <path d="M420 204 H492" class="arrow" />
+  <text x="456" y="192" text-anchor="middle" class="small">SHIPPED_TO</text>
+
+  <path d="M420 238 H492" class="arrow" />
+  <text x="456" y="226" text-anchor="middle" class="small">FROM_IP</text>
+
+  <text x="360" y="24" text-anchor="middle" class="label">Fraud graph overview</text>
+</svg>

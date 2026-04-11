@@ -10,4 +10,15 @@ describe("movieQueries", () => {
     expect(movieQueries.moviesByGenre).toContain("$genre");
     expect(movieQueries.moviesByActor).toContain("$actor");
   });
+
+  it("defines the expected movie query set", () => {
+    expect(Object.keys(movieQueries)).toEqual([
+      "listActorsAndMovies",
+      "coActors",
+      "dramaMovies",
+      "genreMovieCounts",
+      "moviesByGenre",
+      "moviesByActor",
+    ]);
+  });
 });

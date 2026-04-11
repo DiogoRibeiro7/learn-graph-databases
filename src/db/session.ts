@@ -1,3 +1,9 @@
+/**
+ * Neo4j session and query helpers.
+ *
+ * This module centralises session lifecycle management for scripts and
+ * seed loaders, ensuring the configured database is always used.
+ */
 import type { Driver, QueryResult, Session } from "neo4j-driver";
 import { getConfig } from "../config/env.js";
 import { logger } from "../logging/logger.js";
@@ -13,7 +19,6 @@ function delay(milliseconds: number): Promise<void> {
 function summarizeQuery(cypher: string): string {
   return cypher.replace(/\s+/g, " ").trim().slice(0, 120);
 }
-
 /**
  * Query parameters passed to Neo4j session execution.
  */
@@ -22,7 +27,8 @@ export type QueryParameters = Readonly<Record<string, unknown>>;
 /**
  * Runs a read or write Cypher query and returns the raw Neo4j result.
  *
- * This helper centralises session management so example scripts stay short.
+ * This helper centralises session management so example scripts stay short
+ * and provides retry behavior for transient Neo4j errors.
  *
  * @param driver - Active Neo4j driver.
  * @param cypher - Cypher query string.
@@ -32,7 +38,7 @@ export type QueryParameters = Readonly<Record<string, unknown>>;
 export async function runQuery(
   driver: Driver,
   cypher: string,
-  parameters: Record<string, unknown> = {},
+  parameters: QueryParameters = {},
 ): Promise<QueryResult> {
   const cfg = getConfig();
   const session: Session = driver.session({ database: cfg.database });
@@ -65,7 +71,6 @@ export async function runQuery(
           attempt,
           error: error instanceof Error ? error.message : String(error),
         });
-
         if (attempt < MAX_RETRIES && isRetryableNeo4jError(error)) {
           await delay(RETRY_DELAY_MS);
           continue;

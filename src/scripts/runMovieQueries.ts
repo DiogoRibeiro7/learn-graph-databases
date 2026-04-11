@@ -1,3 +1,9 @@
+/**
+ * Command-line runner for the starter movie graph queries.
+ *
+ * This module is intentionally typed and documented so the CLI behavior
+ * remains easy to extend and understand.
+ */
 import type { Record as Neo4jRecord } from "neo4j-driver";
 import { createDriver } from "../db/driver.js";
 import { runQuery } from "../db/session.js";
@@ -6,7 +12,7 @@ import { logger } from "../logging/logger.js";
 import { movieQueries } from "../db/queries.js";
 
 /**
- * Converts a Neo4j record into a plain JavaScript object for logging.
+ * Converts a Neo4j record into a plain object for logging.
  *
  * @param record - Neo4j result record.
  * @returns Plain object representation.
@@ -22,13 +28,13 @@ function toObject(record: Neo4jRecord): Record<string, unknown> {
   return output;
 }
 
-type QueryEntry = {
-  name: string;
-  label: string;
-  cypher: string;
-};
+type QueryEntry = Readonly<{
+  readonly name: string;
+  readonly label: string;
+  readonly cypher: string;
+}>;
 
-const queryEntries: QueryEntry[] = [
+const queryEntries = [
   {
     name: "actors-and-movies",
     label: "Actors and movies",
@@ -59,7 +65,9 @@ const queryEntries: QueryEntry[] = [
     label: "Movies by actor",
     cypher: movieQueries.moviesByActor,
   },
-];
+] as const;
+
+type QueryName = (typeof queryEntries)[number]["name"];
 
 type CliOptions = {
   queryName?: string;
@@ -68,6 +76,9 @@ type CliOptions = {
   parameters: Record<string, string>;
 };
 
+/**
+ * Prints the available named movie queries.
+ */
 function printAvailableQueries(): void {
   console.log("Available movie queries:");
 
@@ -80,6 +91,12 @@ function printAvailableQueries(): void {
   );
 }
 
+/**
+ * Parses command-line arguments for the movie query runner.
+ *
+ * @param args - Raw CLI arguments.
+ * @returns Parsed invocation options.
+ */
 export function parseArgs(args: string[]): CliOptions {
   const result: CliOptions = { list: false, help: false, parameters: {} };
 
@@ -134,6 +151,22 @@ export function parseArgs(args: string[]): CliOptions {
   return result;
 }
 
+/**
+ * Determines whether a supplied string matches a known query name.
+ *
+ * @param value - Candidate query name.
+ * @returns True when the value is a valid named query.
+ */
+function isQueryName(value: string): value is QueryName {
+  return queryEntries.some((entry) => entry.name === value);
+}
+
+/**
+ * Finds a movie query definition by its name.
+ *
+ * @param queryName - Name of the query to resolve.
+ * @returns The query definition or undefined when not found.
+ */
 export function findQueryByName(queryName: string): QueryEntry | undefined {
   return queryEntries.find((entry) => entry.name === queryName);
 }
@@ -155,16 +188,16 @@ async function main(): Promise<void> {
     return;
   }
 
-  const selectedQueries = options.queryName
-    ? [findQueryByName(options.queryName)]
-    : queryEntries;
-
-  if (options.queryName && !selectedQueries[0]) {
+  if (options.queryName && !isQueryName(options.queryName)) {
     console.error(`Unknown query: ${options.queryName}`);
     printAvailableQueries();
     process.exitCode = 1;
     return;
   }
+
+  const selectedQueries = options.queryName
+    ? [findQueryByName(options.queryName)!]
+    : queryEntries;
 
   try {
     for (const query of selectedQueries) {

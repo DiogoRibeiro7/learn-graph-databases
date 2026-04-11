@@ -1,3 +1,9 @@
+/**
+ * Neo4j driver factory helpers.
+ *
+ * This module centralises connection creation so the rest of the
+ * application can depend on a single validated runtime configuration.
+ */
 import neo4j, { type Driver } from "neo4j-driver";
 import { getConfig } from "../config/env.js";
 
@@ -6,7 +12,7 @@ import { getConfig } from "../config/env.js";
  *
  * The caller is responsible for closing the driver after use.
  *
- * @returns Neo4j driver instance.
+ * @returns A Neo4j driver instance.
  */
 export function createDriver(): Driver {
   const cfg = getConfig();
