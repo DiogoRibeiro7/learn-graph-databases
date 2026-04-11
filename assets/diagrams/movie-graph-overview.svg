@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <style>
+    .node { fill: #f9f0c2; stroke: #b8860b; stroke-width: 2px; }
+    .rel { fill: #d0e6f9; stroke: #1f77b4; stroke-width: 2px; }
+    .label { font: 14px sans-serif; fill: #333; }
+    .small { font: 12px sans-serif; fill: #333; }
+    .arrow { fill: none; stroke: #333; stroke-width: 2px; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+
+  <rect x="24" y="36" width="160" height="72" rx="14" class="node" />
+  <text x="104" y="64" text-anchor="middle" class="label">Person</text>
+  <text x="104" y="84" text-anchor="middle" class="small">name, age</text>
+
+  <rect x="240" y="36" width="160" height="72" rx="14" class="node" />
+  <text x="320" y="64" text-anchor="middle" class="label">Movie</text>
+  <text x="320" y="84" text-anchor="middle" class="small">title, year</text>
+
+  <rect x="456" y="36" width="160" height="72" rx="14" class="node" />
+  <text x="536" y="64" text-anchor="middle" class="label">Genre</text>
+  <text x="536" y="84" text-anchor="middle" class="small">name</text>
+
+  <path d="M184 70 H240" class="arrow" />
+  <text x="212" y="58" text-anchor="middle" class="small">ACTED_IN</text>
+
+  <path d="M400 70 H456" class="arrow" />
+  <text x="428" y="58" text-anchor="middle" class="small">IN_GENRE</text>
+
+  <text x="320" y="24" text-anchor="middle" class="label">Movie graph overview</text>
+</svg>

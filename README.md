@@ -229,6 +229,16 @@ Good for dependency and path thinking. It teaches:
 - disruption analysis
 - upstream and downstream traversal
 
+## Visual examples
+
+The repository includes visual overview diagrams for the example domains in `assets/diagrams/`:
+
+- `assets/diagrams/movie-graph-overview.svg`
+- `assets/diagrams/fraud-graph-overview.svg`
+- `assets/diagrams/supply-chain-overview.svg`
+
+These diagrams provide a quick view of the graph structure and relationships used by the examples.
+
 ## Notes for instructors
 
 A good teaching sequence is:
