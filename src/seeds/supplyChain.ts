@@ -1,5 +1,6 @@
 import type { Driver } from "neo4j-driver";
 import { runQuery } from "../db/session.js";
+import { logger } from "../logging/logger.js";
 
 const seedCypher = `
   MERGE (s1:Supplier {supplierId: "S001", name: "North Metals"})
@@ -19,5 +20,12 @@ const seedCypher = `
  * @param driver - Active Neo4j driver.
  */
 export async function seedSupplyChain(driver: Driver): Promise<void> {
-  await runQuery(driver, seedCypher);
+  const result = await runQuery(driver, seedCypher);
+  const counters = (result as any)?.summary?.counters as any;
+
+  logger.info("Supply chain seed summary", {
+    nodesCreated: counters?.nodesCreated?.() ?? 0,
+    relationshipsCreated: counters?.relationshipsCreated?.() ?? 0,
+    propertiesSet: counters?.propertiesSet?.() ?? 0,
+  });
 }
