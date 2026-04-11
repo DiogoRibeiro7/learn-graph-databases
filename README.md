@@ -92,6 +92,23 @@ Lesson overview:
 | Lesson 03 | Cypher basics | `lessons/lesson_03_cypher/lesson.md` |
 | Lesson 04 | Graph algorithms basics | `lessons/lesson_04_graph_algorithms/lesson.md` |
 
+## Course navigation
+
+Use the learning path and repo structure to move through the material in a practical way:
+
+- Start with `docs/` for the conceptual foundation.
+- Follow the lesson sequence in `lessons/`:
+  - `lessons/lesson_01_intro`
+  - `lessons/lesson_02_modelling`
+  - `lessons/lesson_03_cypher`
+  - `lessons/lesson_04_graph_algorithms`
+- Explore example datasets in `examples/`:
+  - `examples/movies`
+  - `examples/fraud`
+  - `examples/supply-chain`
+- Run the corresponding TypeScript seed and query scripts in `src/scripts/`.
+- Use `lessons/README.md` for a lesson index and quick navigation.
+
 3. Start Neo4j locally
 4. Seed the example datasets
 5. Run the Cypher queries
