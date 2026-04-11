@@ -7,6 +7,7 @@
 import type { Record as Neo4jRecord } from "neo4j-driver";
 import { createDriver } from "../db/driver.js";
 import { runQuery } from "../db/session.js";
+import { formatNeo4jErrorMessage } from "../db/errors.js";
 import { movieQueries } from "../db/queries.js";
 
 /**
@@ -225,7 +226,7 @@ async function main(): Promise<void> {
 if (import.meta.main) {
   main().catch((error: unknown) => {
     console.error("Failed to run movie queries.");
-    console.error(error);
+    console.error(error instanceof Error ? formatNeo4jErrorMessage(error) : error);
     process.exitCode = 1;
   });
 }

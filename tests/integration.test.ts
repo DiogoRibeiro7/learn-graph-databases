@@ -27,9 +27,10 @@ describeIfNeo4j("Neo4j integration tests", () => {
 
   it("connects to Neo4j and returns a basic query result", async () => {
     const result = await runQuery(driver, "RETURN 1 AS ok");
+    const record = result.records[0]!;
 
     expect(result.records).toHaveLength(1);
-    expect(result.records[0].get("ok")).toBe(1);
+    expect(record.get("ok")).toBe(1);
   });
 
   it("creates and removes a temporary test node", async () => {
@@ -39,7 +40,8 @@ describeIfNeo4j("Neo4j integration tests", () => {
       { key: uniqueKey },
     );
 
-    expect(createResult.records[0].get("key")).toBe(uniqueKey);
+    const createdRecord = createResult.records[0]!;
+    expect(createdRecord.get("key")).toBe(uniqueKey);
 
     const cleanupResult = await runQuery(
       driver,
@@ -47,6 +49,7 @@ describeIfNeo4j("Neo4j integration tests", () => {
       { key: uniqueKey },
     );
 
-    expect(cleanupResult.records[0].get("deletedCount")).toBe(1);
+    const cleanupRecord = cleanupResult.records[0]!;
+    expect(cleanupRecord.get("deletedCount")).toBe(1);
   });
 });

@@ -32,4 +32,20 @@ describe("runQuery", () => {
     await expect(runQuery(driver as unknown as any, "MATCH (n) RETURN n")).rejects.toThrow("oops");
     expect(close).toHaveBeenCalled();
   });
+
+  it("retries transient Neo4j errors before failing", async () => {
+    const transientError = { code: "Neo.TransientError.Transaction.Terminated", message: "Temporary failure" };
+    const run = vi.fn()
+      .mockRejectedValueOnce(transientError)
+      .mockResolvedValue({ records: [] });
+    const close = vi.fn().mockResolvedValue(undefined);
+    const session = { run, close };
+    const driver = { session: vi.fn().mockReturnValue(session) };
+
+    const result = await runQuery(driver as unknown as any, "MATCH (n) RETURN n");
+
+    expect(run).toHaveBeenCalledTimes(2);
+    expect(result).toEqual({ records: [] });
+    expect(close).toHaveBeenCalled();
+  });
 });
