@@ -6,6 +6,7 @@
  */
 import type { Driver } from "neo4j-driver";
 import { runQuery } from "../db/session.js";
+import { logger } from "../logging/logger.js";
 
 /**
  * Cypher payload used to seed the supply-chain graph.
@@ -29,5 +30,12 @@ const seedCypher = `
  * @returns A promise that resolves once the supply-chain graph is created.
  */
 export async function seedSupplyChain(driver: Driver): Promise<void> {
-  await runQuery(driver, seedCypher);
+  const result = await runQuery(driver, seedCypher);
+  const counters = (result as any)?.summary?.counters as any;
+
+  logger.info("Supply chain seed summary", {
+    nodesCreated: counters?.nodesCreated?.() ?? 0,
+    relationshipsCreated: counters?.relationshipsCreated?.() ?? 0,
+    propertiesSet: counters?.propertiesSet?.() ?? 0,
+  });
 }

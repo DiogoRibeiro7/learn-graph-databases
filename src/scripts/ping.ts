@@ -7,6 +7,7 @@
 import { createDriver } from "../db/driver.js";
 import { runQuery } from "../db/session.js";
 import { formatNeo4jErrorMessage } from "../db/errors.js";
+import { logger } from "../logging/logger.js";
 
 /**
  * Entry point for the ping script.
@@ -22,14 +23,15 @@ async function main(): Promise<void> {
       throw new Error("Ping query returned no records.");
     }
 
-    console.log("Connected to Neo4j. Result:", record.get("ok"));
+    logger.info("Neo4j ping succeeded", { ok: record.get("ok") });
   } finally {
     await driver.close();
   }
 }
 
 main().catch((error: unknown) => {
-  console.error("Failed to connect to Neo4j.");
-  console.error(error instanceof Error ? formatNeo4jErrorMessage(error) : error);
+  logger.error("Failed to connect to Neo4j.", {
+    error: error instanceof Error ? formatNeo4jErrorMessage(error) : String(error),
+  });
   process.exitCode = 1;
 });

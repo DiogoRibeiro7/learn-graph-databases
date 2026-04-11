@@ -7,6 +7,7 @@
 import { createDriver } from "../db/driver.js";
 import { seedFraud } from "../seeds/fraud.js";
 import { formatNeo4jErrorMessage } from "../db/errors.js";
+import { logger } from "../logging/logger.js";
 
 /**
  * Entry point for the fraud seed script.
@@ -16,14 +17,15 @@ async function main(): Promise<void> {
 
   try {
     await seedFraud(driver);
-    console.log("Fraud graph seeded successfully.");
+    logger.info("Fraud graph seeded successfully.");
   } finally {
     await driver.close();
   }
 }
 
 main().catch((error: unknown) => {
-  console.error("Failed to seed fraud graph.");
-  console.error(error instanceof Error ? formatNeo4jErrorMessage(error) : error);
+  logger.error("Failed to seed fraud graph.", {
+    error: error instanceof Error ? formatNeo4jErrorMessage(error) : String(error),
+  });
   process.exitCode = 1;
 });

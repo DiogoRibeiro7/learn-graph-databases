@@ -6,6 +6,7 @@
 import { createDriver } from "../db/driver.js";
 import { seedMovies } from "../seeds/movies.js";
 import { formatNeo4jErrorMessage } from "../db/errors.js";
+import { logger } from "../logging/logger.js";
 
 /**
  * Entry point for the movie seed script.
@@ -15,14 +16,15 @@ async function main(): Promise<void> {
 
   try {
     await seedMovies(driver);
-    console.log("Movie graph seeded successfully.");
+    logger.info("Movie graph seeded successfully.");
   } finally {
     await driver.close();
   }
 }
 
 main().catch((error: unknown) => {
-  console.error("Failed to seed movie graph.");
-  console.error(error instanceof Error ? formatNeo4jErrorMessage(error) : error);
+  logger.error("Failed to seed movie graph.", {
+    error: error instanceof Error ? formatNeo4jErrorMessage(error) : String(error),
+  });
   process.exitCode = 1;
 });

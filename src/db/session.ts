@@ -6,6 +6,7 @@
  */
 import type { Driver, QueryResult, Session } from "neo4j-driver";
 import { getConfig } from "../config/env.js";
+import { logger } from "../logging/logger.js";
 import { formatNeo4jErrorMessage, isRetryableNeo4jError } from "./errors.js";
 
 const MAX_RETRIES = 2;
@@ -15,6 +16,9 @@ function delay(milliseconds: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
+function summarizeQuery(cypher: string): string {
+  return cypher.replace(/\s+/g, " ").trim().slice(0, 120);
+}
 /**
  * Query parameters passed to Neo4j session execution.
  */
@@ -39,11 +43,34 @@ export async function runQuery(
   const cfg = getConfig();
   const session: Session = driver.session({ database: cfg.database });
 
+  const querySummary = summarizeQuery(cypher);
+  const startTime = Date.now();
+
   try {
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
       try {
-        return await session.run(cypher, parameters);
+        const result = await session.run(cypher, parameters);
+        const durationMs = Date.now() - startTime;
+
+        logger.info("Executed Neo4j query", {
+          query: querySummary,
+          parameters,
+          durationMs,
+          database: cfg.database,
+          records: result.records.length,
+          attempt,
+        });
+
+        return result;
       } catch (error: unknown) {
+        const durationMs = Date.now() - startTime;
+        logger.error("Neo4j query failed", {
+          query: querySummary,
+          parameters,
+          durationMs,
+          attempt,
+          error: error instanceof Error ? error.message : String(error),
+        });
         if (attempt < MAX_RETRIES && isRetryableNeo4jError(error)) {
           await delay(RETRY_DELAY_MS);
           continue;

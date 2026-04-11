@@ -8,6 +8,7 @@ import type { Record as Neo4jRecord } from "neo4j-driver";
 import { createDriver } from "../db/driver.js";
 import { runQuery } from "../db/session.js";
 import { formatNeo4jErrorMessage } from "../db/errors.js";
+import { logger } from "../logging/logger.js";
 import { movieQueries } from "../db/queries.js";
 
 /**
@@ -207,16 +208,26 @@ async function main(): Promise<void> {
       const requiresParams = query.cypher.includes("$");
 
       if (requiresParams && Object.keys(options.parameters).length === 0) {
-        console.error(
-          `Query "${query.name}" requires parameters. Use --param KEY=VALUE to pass parameters.`,
-        );
+        logger.error(`Query "${query.name}" requires parameters. Use --param KEY=VALUE to pass parameters.`, {
+          queryName: query.name,
+        });
         process.exitCode = 1;
         return;
       }
 
+      logger.info("Running movie query", {
+        name: query.name,
+        label: query.label,
+        parameters: options.parameters,
+      });
+
       const result = await runQuery(driver, query.cypher, options.parameters);
       console.log(`\n=== ${query.label} ===`);
       console.table(result.records.map(toObject));
+      logger.info("Movie query completed", {
+        name: query.name,
+        rowCount: result.records.length,
+      });
     }
   } finally {
     await driver.close();
@@ -225,8 +236,9 @@ async function main(): Promise<void> {
 
 if (import.meta.main) {
   main().catch((error: unknown) => {
-    console.error("Failed to run movie queries.");
-    console.error(error instanceof Error ? formatNeo4jErrorMessage(error) : error);
+    logger.error("Failed to run movie queries.", {
+      error: error instanceof Error ? formatNeo4jErrorMessage(error) : String(error),
+    });
     process.exitCode = 1;
   });
 }
