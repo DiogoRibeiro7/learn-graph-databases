@@ -1,5 +1,17 @@
 # Lesson 04 - Graph algorithms basics
 
+## What you'll learn
+
+- How graph algorithms reveal structure, influence, and connection patterns
+- When to use shortest-path and centrality queries
+- How simple Cypher can support algorithmic thinking
+
+## Prerequisites
+
+- Lesson 01: Introduction to graph databases
+- Lesson 02: Graph modelling
+- Lesson 03: Cypher basics
+
 ## Concept
 
 Graph algorithms answer questions about how nodes are connected and which nodes are most important.
@@ -100,3 +112,11 @@ This shows customers connected by the same orders, which can reveal suspicious o
 - forgetting to limit path length when exploring large graphs
 - counting raw rows instead of distinct relationships or nodes
 - matching redundant patterns that produce duplicate results
+
+## Summary
+
+This lesson introduced graph algorithm thinking by focusing on shortest-path and centrality patterns. You learned when to use hop-based path queries and when to choose weighted path algorithms.
+
+## What's next
+
+Explore the project examples and Neo4j GDS notes to see how these patterns apply to real graphs.

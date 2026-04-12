@@ -18,7 +18,13 @@ yarn seed:fraud
 
 2. Run the example queries in Neo4j Browser or `cypher-shell`.
 
-3. Use the sample queries to explore shared IPs and payment-card reuse.
+3. Run the TypeScript query runner:
+
+```bash
+yarn query:fraud
+```
+
+4. Use the sample queries to explore shared IPs and payment-card reuse.
 
 ## Notes
 
