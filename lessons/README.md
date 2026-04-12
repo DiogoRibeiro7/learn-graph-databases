@@ -20,6 +20,13 @@ This folder contains the lesson content for the course.
 3. `lesson_03_cypher`
 4. `lesson_04_graph_algorithms`
 
+Each lesson builds on the previous one:
+
+- Lesson 01 introduces graph database fundamentals.
+- Lesson 02 uses those fundamentals to model a domain as a graph.
+- Lesson 03 uses Cypher to query and analyse the models.
+- Lesson 04 introduces algorithmic patterns that rely on both the model and Cypher queries.
+
 ## Lesson structure
 
 Each lesson follows this pattern:

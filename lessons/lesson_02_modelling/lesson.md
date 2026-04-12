@@ -1,5 +1,15 @@
 # Lesson 02 - Graph modelling
 
+## What you'll learn
+
+- How to turn domain questions into a graph model
+- When to use nodes versus properties
+- How relationships express meaningful connections
+
+## Prerequisites
+
+- Lesson 01: Introduction to graph databases
+
 ## Concept
 
 Graph modelling begins with domain questions.

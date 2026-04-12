@@ -1,5 +1,15 @@
 # Lesson 01 - Introduction to graph databases
 
+## What you'll learn
+
+- What a graph database is and how it differs from relational storage
+- How nodes, relationships, and properties represent data
+- How to create a simple graph using Cypher
+
+## Prerequisites
+
+None — this lesson is the starting point for the course.
+
 ## Concept
 
 A graph database stores entities and their relationships directly.

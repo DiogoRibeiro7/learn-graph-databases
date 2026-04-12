@@ -1,5 +1,16 @@
 # Lesson 03 - Cypher basics
 
+## What you'll learn
+
+- How to write Cypher queries for matched graph patterns
+- How to filter, aggregate, and return data
+- When to use `MATCH`, `WHERE`, `WITH`, and `MERGE`
+
+## Prerequisites
+
+- Lesson 01: Introduction to graph databases
+- Lesson 02: Graph modelling
+
 ## Concept
 
 Cypher lets you express graph patterns directly as node and relationship structures.
