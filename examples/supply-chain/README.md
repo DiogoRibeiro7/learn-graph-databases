@@ -18,7 +18,13 @@ yarn seed:supply
 
 2. Run the example queries in Neo4j Browser or `cypher-shell`.
 
-3. The example includes both unweighted shortest-path exploration and a GDS weighted path pattern.
+3. Run the TypeScript query runner:
+
+```bash
+yarn query:supply
+```
+
+4. The example includes both unweighted shortest-path exploration and a GDS weighted path pattern.
 
 ## Notes
 

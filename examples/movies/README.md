@@ -18,7 +18,13 @@ yarn seed:movies
 
 2. Run the example queries in Neo4j Browser or `cypher-shell`.
 
-3. Inspect the graph model and adjust queries as needed.
+3. Run the TypeScript query runner:
+
+```bash
+yarn query:movies
+```
+
+4. Inspect the graph model and adjust queries as needed.
 
 ## Notes
 

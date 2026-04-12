@@ -62,3 +62,31 @@ export const movieQueries = {
     ORDER BY year
   `,
 } as const;
+
+export const fraudQueries = {
+  customersSharingIp: `
+    MATCH (c:Customer)-[:PLACED]->(:Order)-[:FROM_IP]->(ip:IP)
+    WITH ip, collect(DISTINCT c.name) AS customers
+    WHERE size(customers) > 1
+    RETURN ip.value AS ip, customers
+  `,
+
+  sharedCreditCards: `
+    MATCH (:Order)-[:PAID_WITH]->(cc:CreditCard)<-[:PAID_WITH]-(:Order)
+    RETURN DISTINCT cc.cardHash AS cardHash
+  `,
+} as const;
+
+export const supplyChainQueries = {
+  supplierComponentFlow: `
+    MATCH (s:Supplier)-[:SUPPLIES]->(c:Component)<-[:USES]-(f:Factory)
+    RETURN s.name AS supplier, c.name AS component, f.name AS factory
+    ORDER BY supplier, component, factory
+  `,
+
+  supplierShortestPath: `
+    MATCH (s1:Supplier {name: "North Metals"}), (s2:Supplier {name: "Blue Circuits"})
+    MATCH p = shortestPath((s1)-[:SUPPLIES*..4]-(s2))
+    RETURN p, length(p) AS hops
+  `,
+} as const;

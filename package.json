@@ -20,6 +20,8 @@
     "seed:fraud": "tsx src/scripts/seedFraud.ts",
     "seed:supply": "tsx src/scripts/seedSupplyChain.ts",
     "query:movies": "tsx src/scripts/runMovieQueries.ts",
+    "query:fraud": "tsx src/scripts/runFraudQueries.ts",
+    "query:supply": "tsx src/scripts/runSupplyChainQueries.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },
