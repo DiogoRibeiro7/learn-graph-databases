@@ -269,6 +269,10 @@ This style of query keeps the graph structure visible in the query itself.
 
 The graph pattern appears as a mini-graph sequence, and the query reads like a traversal from one node to another.
 
+## Practical example
+
+This lesson is designed to be practiced with the repository's example domains. Use `yarn seed:fraud` and `yarn query:fraud` to explore the fraud graph, or `yarn seed:movies` and `yarn query:movies` for the movie domain.
+
 ## Common mistakes
 
 - confusing `CREATE` and `MERGE`

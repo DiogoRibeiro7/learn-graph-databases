@@ -40,6 +40,12 @@ CREATE (a)-[:KNOWS]->(b);
 - `KNOWS` is a relationship type
 - `name` is a property
 
+## Practical example
+
+This lesson introduces the graph model used throughout the course. Later lessons use example domains such as the fraud graph and movie graph in `examples/` to apply these concepts.
+
+Use the repo's seed scripts and query runners after completing the course material.
+
 ## Common mistakes
 
 - thinking only in tables
