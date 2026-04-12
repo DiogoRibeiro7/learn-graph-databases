@@ -39,6 +39,27 @@ Each lesson follows this pattern:
 
 Open the lesson files in order and run the example Cypher queries against a seeded Neo4j database.
 
+Each lesson is paired with the repository examples and seed scripts:
+
+- `lesson_01_intro` introduces graph basics.
+- `lesson_02_modelling` uses the fraud domain and graph modelling patterns.
+- `lesson_03_cypher` explores Cypher with the same fraud and movie example data.
+- `lesson_04_graph_algorithms` introduces path and centrality patterns using example graphs and GDS notes.
+
+For the example domains, use the corresponding seed scripts and query runners, such as:
+
+```bash
+yarn seed:movies
+yarn query:movies
+```
+
+and similarly:
+
+```bash
+yarn seed:fraud
+yarn query:fraud
+```
+
 ## Visual aids
 
 Visual diagrams for the example domains are available in `assets/diagrams/`.
