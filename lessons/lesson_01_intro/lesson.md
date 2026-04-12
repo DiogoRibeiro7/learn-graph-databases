@@ -45,3 +45,11 @@ CREATE (a)-[:KNOWS]->(b);
 - thinking only in tables
 - ignoring relationships as first-class data
 - making the graph more complex than necessary
+
+## Summary
+
+This lesson introduced the graph database model, including nodes, relationships, and properties. You learned how relationships make connections first-class and how to represent a simple graph with Cypher.
+
+## What's next
+
+Continue to Lesson 02 to learn how to model a domain as a graph and design relationships for real-world questions.

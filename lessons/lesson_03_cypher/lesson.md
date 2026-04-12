@@ -292,3 +292,11 @@ The graph pattern appears as a mini-graph sequence, and the query reads like a t
 - returning large patterns without filtering
 - using `WHERE` before `MATCH`
 - returning nodes when you only need properties
+
+## Summary
+
+This lesson explained Cypher basics, including pattern matching, filtering, aggregation, and idempotent writes. You learned how to build queries that explore graph structure, summarize results, and avoid common query mistakes.
+
+## What's next
+
+Continue to Lesson 04 to see how graph algorithms extend Cypher concepts and help answer more advanced connection questions.

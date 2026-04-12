@@ -112,3 +112,11 @@ This shows customers connected by the same orders, which can reveal suspicious o
 - forgetting to limit path length when exploring large graphs
 - counting raw rows instead of distinct relationships or nodes
 - matching redundant patterns that produce duplicate results
+
+## Summary
+
+This lesson introduced graph algorithm thinking by focusing on shortest-path and centrality patterns. You learned when to use hop-based path queries and when to choose weighted path algorithms.
+
+## What's next
+
+Explore the project examples and Neo4j GDS notes to see how these patterns apply to real graphs.
