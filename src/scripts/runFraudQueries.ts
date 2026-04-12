@@ -22,6 +22,13 @@ async function main(): Promise<void> {
     console.table(sharedCardsResult.records.map((record) => ({
       cardHash: record.get("cardHash"),
     })));
+
+    const communityResult = await runQuery(driver, fraudQueries.communityDetection);
+    console.log("\n=== Fraud Community Detection ===");
+    console.table(communityResult.records.map((record) => ({
+      componentId: record.get("componentId"),
+      customer: record.get("customer"),
+    })));
   } finally {
     await driver.close();
   }
