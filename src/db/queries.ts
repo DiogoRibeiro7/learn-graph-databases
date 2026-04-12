@@ -75,6 +75,21 @@ export const fraudQueries = {
     MATCH (:Order)-[:PAID_WITH]->(cc:CreditCard)<-[:PAID_WITH]-(:Order)
     RETURN DISTINCT cc.cardHash AS cardHash
   `,
+
+  communityDetection: `
+    CALL gds.graph.project(
+      'fraudGraph',
+      ['Customer', 'Order'],
+      {
+        PLACED: {orientation: 'UNDIRECTED'}
+      }
+    )
+    YIELD graphName
+    CALL gds.wcc.stream('fraudGraph')
+    YIELD componentId, nodeId
+    RETURN componentId, gds.util.asNode(nodeId).name AS customer
+    ORDER BY componentId, customer
+  `,
 } as const;
 
 export const supplyChainQueries = {

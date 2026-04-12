@@ -32,3 +32,20 @@ MATCH (c1:Customer)-[:PLACED]->(:Order)<-[:PLACED]-(c2:Customer)
 WHERE c1 <> c2
 RETURN c1.name AS customerA, c2.name AS customerB, count(*) AS sharedOrders
 ORDER BY sharedOrders DESC;
+
+/*
+  Community detection example using Neo4j GDS connected components.
+  This is useful for identifying clusters of related customers in fraud graphs.
+*/
+CALL gds.graph.project(
+  'fraudGraph',
+  ['Customer', 'Order'],
+  {
+    PLACED: {orientation: 'UNDIRECTED'}
+  }
+)
+YIELD graphName
+CALL gds.wcc.stream('fraudGraph')
+YIELD componentId, nodeId
+RETURN componentId, gds.util.asNode(nodeId).name AS customer
+ORDER BY componentId, customer;

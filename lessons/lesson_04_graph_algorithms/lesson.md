@@ -103,6 +103,48 @@ ORDER BY sharedOrders DESC
 
 This shows customers connected by the same orders, which can reveal suspicious or related activity.
 
+## Community detection
+
+Community detection groups together nodes that are closely connected.
+In fraud analysis, this can reveal rings of related customers, shared accounts, or clusters of suspicious activity.
+
+You can use Neo4j GDS algorithms such as connected components, label propagation, and Louvain modularity to find these clusters.
+
+Example:
+
+```cypher
+CALL gds.graph.project(
+  'fraudGraph',
+  ['Customer', 'Order'],
+  {
+    PLACED: {orientation: 'UNDIRECTED'}
+  }
+)
+YIELD graphName
+CALL gds.wcc.stream('fraudGraph')
+YIELD componentId, nodeId
+RETURN componentId, gds.util.asNode(nodeId).name AS customer
+ORDER BY componentId, customer;
+```
+
+This finds weakly connected communities of customers through shared orders. For larger or weighted fraud datasets, use label propagation or Louvain modularity instead:
+
+```cypher
+CALL gds.labelPropagation.stream('fraudGraph')
+YIELD nodeId, communityId
+RETURN gds.util.asNode(nodeId).name AS customer, communityId
+ORDER BY communityId, customer;
+```
+
+```cypher
+CALL gds.louvain.stream('fraudGraph')
+YIELD nodeId, communityId
+RETURN gds.util.asNode(nodeId).name AS customer, communityId
+ORDER BY communityId, customer;
+```
+
+Community detection is useful for identifying clusters such as social groups, fraud rings, or weakly connected components in a network.
+
 ## What to notice
 
 - `shortestPath()` returns a path object, not individual nodes

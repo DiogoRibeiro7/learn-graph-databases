@@ -25,6 +25,7 @@ yarn query:fraud
 ```
 
 4. Use the sample queries to explore shared IPs and payment-card reuse.
+5. Review the community detection query in `queries.cypher` to identify customer clusters and fraud rings.
 
 ## Notes
 
