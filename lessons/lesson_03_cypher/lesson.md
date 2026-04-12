@@ -225,22 +225,6 @@ This uses `FOREACH` to set a property only for the `Sci-Fi` genre.
 
 ## CREATE
 
-`FOREACH` executes a write operation for each element in a list. It is useful for applying updates or creating patterns from a collection of values.
-
-Example:
-
-```cypher
-UNWIND ["Sci-Fi", "Drama", "Action"] AS genreName
-MERGE (g:Genre {name: genreName})
-FOREACH (_ IN CASE WHEN genreName = "Sci-Fi" THEN [1] ELSE [] END |
-  SET g.featured = true
-)
-```
-
-This uses `FOREACH` to set a property only for the `Sci-Fi` genre.
-
-## CREATE
-
 `CREATE` adds new nodes or relationships to the graph. Use it when you are sure the data does not already exist.
 
 Example:
