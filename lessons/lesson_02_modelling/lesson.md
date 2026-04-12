@@ -43,6 +43,10 @@ Why might `Address` be a node instead of a property?
 
 Because it can be shared, queried, and traversed.
 
+## Practical example
+
+This modelling lesson is grounded in the fraud example domain. The `examples/fraud/` folder contains the schema, seed data, and queries used to explore the model in practice.
+
 ## Common mistakes
 
 - weak relationship naming

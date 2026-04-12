@@ -26,6 +26,10 @@ Understanding even simple graph algorithm patterns helps you ask better question
 
 For a broader overview of graph algorithm categories and when to use them, see `docs/10-graph-algorithms-overview.md`.
 
+## Practical example
+
+Try these graph algorithm concepts with the supply-chain example in `examples/supply-chain/` and the fraud example in `examples/fraud/`. Use `yarn seed:supply` and `yarn query:supply` to explore the practical pathfinding examples, and review the GDS notes for advanced analytics patterns.
+
 ## Shortest path
 
 The shortest path is the smallest number of hops between two nodes. Use `shortestPath()` when you want a single best route.
