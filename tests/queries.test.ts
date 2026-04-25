@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { fraudQueries, movieQueries, recommendationQueries, supplyChainQueries } from "../src/db/queries.js";
+import { fraudQueries, movieQueries, rbacQueries, recommendationQueries, supplyChainQueries } from "../src/db/queries.js";
 
 describe("movieQueries", () => {
   it("exposes starter query strings", () => {
@@ -83,6 +83,25 @@ describe("recommendationQueries", () => {
       "collaborativeForUser",
       "contentBasedForItem",
       "hybridForUser",
+    ]);
+  });
+});
+
+describe("rbacQueries", () => {
+  it("includes RBAC query patterns", () => {
+    expect(rbacQueries.canUserAccessResource).toContain("ASSIGNED_ROLE");
+    expect(rbacQueries.canUserAccessResource).toContain("INHERITS_ROLE*0..");
+    expect(rbacQueries.userActionsOnResource).toContain("allowedActions");
+    expect(rbacQueries.userCapabilities).toContain("APPLIES_TO");
+    expect(rbacQueries.explainUserAccessPath).toContain("grantPath");
+  });
+
+  it("defines the expected RBAC query set", () => {
+    expect(Object.keys(rbacQueries)).toEqual([
+      "canUserAccessResource",
+      "userActionsOnResource",
+      "userCapabilities",
+      "explainUserAccessPath",
     ]);
   });
 });

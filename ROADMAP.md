@@ -26,7 +26,7 @@
 - [x] Expand fraud detection example
 - [x] Expand supply chain example
 - [x] Add recommendation example
-- [ ] Add access-control example
+- [x] Add access-control example
 - [ ] Add knowledge-graph example
 
 ## v0.4 - TypeScript integration

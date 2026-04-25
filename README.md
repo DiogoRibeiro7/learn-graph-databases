@@ -107,6 +107,7 @@ Use the learning path and repo structure to move through the material in a pract
   - `examples/fraud`
   - `examples/supply-chain`
   - `examples/recommendation`
+  - `examples/rbac`
 - Run the corresponding TypeScript seed and query scripts in `src/scripts/`.
 - Use `lessons/README.md` for a lesson index and quick navigation.
 
@@ -182,8 +183,10 @@ yarn seed:movies
 yarn seed:fraud
 yarn seed:supply
 yarn seed:recommend
+yarn seed:rbac
 yarn query:movies
 yarn query:recommend
+yarn query:rbac
 yarn test
 ```
 
@@ -239,6 +242,14 @@ Good for personalization and ranking patterns. It teaches:
 - collaborative filtering patterns
 - content-based filtering patterns
 - hybrid recommendation scoring
+
+### RBAC graph
+Good for authorization modelling. It teaches:
+
+- users, roles, permissions, and resources
+- role inheritance with transitive traversal
+- direct access checks in Cypher
+- explainable permission paths
 
 ## Visual examples
 
