@@ -18,6 +18,8 @@ This folder contains the lesson content for the course.
   - Deep dive on WHERE filtering patterns
 - `lesson_07_return_projections`
   - Result shaping with RETURN, DISTINCT, and map projections
+- `lesson_08_create_merge`
+  - Write semantics with CREATE, MERGE, and idempotent patterns
 
 ## Recommended order
 
@@ -28,6 +30,7 @@ This folder contains the lesson content for the course.
 5. `lesson_05_match_clause`
 6. `lesson_06_where_clause`
 7. `lesson_07_return_projections`
+8. `lesson_08_create_merge`
 
 Each lesson builds on the previous one:
 
@@ -38,6 +41,7 @@ Each lesson builds on the previous one:
 - Lesson 05 deepens pattern matching skills with `MATCH`, paths, multiple clauses, and `OPTIONAL MATCH`.
 - Lesson 06 focuses on expressive filtering with `WHERE`, boolean logic, string operators, and existential subqueries.
 - Lesson 07 focuses on result shaping with `RETURN`, aliases, pagination, and map projections.
+- Lesson 08 focuses on write patterns with `CREATE`, `MERGE`, and safe upsert workflows.
 
 ## Lesson structure
 
@@ -60,6 +64,7 @@ Each lesson is paired with the repository examples and seed scripts:
 - `lesson_05_match_clause` focuses on read-query pattern design and optional traversals.
 - `lesson_06_where_clause` focuses on filtering matched data precisely and safely.
 - `lesson_07_return_projections` focuses on shaping query output for analysis and APIs.
+- `lesson_08_create_merge` focuses on creating graph data without introducing duplicates.
 
 For the example domains, use the corresponding seed scripts and query runners, such as:
 

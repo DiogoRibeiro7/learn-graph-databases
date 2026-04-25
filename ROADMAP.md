@@ -15,8 +15,8 @@
   - [x] `MATCH`
   - [x] `WHERE`
   - [x] `RETURN`
-  - [ ] `CREATE`
-  - [ ] `MERGE`
+  - [x] `CREATE`
+  - [x] `MERGE`
   - [ ] aggregation
   - [ ] variable-length paths
 - [ ] Add answer keys for exercises
