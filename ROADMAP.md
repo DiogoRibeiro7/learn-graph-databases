@@ -13,7 +13,7 @@
 ## v0.2 - Cypher teaching layer
 - [ ] Add more lesson material on:
   - [x] `MATCH`
-  - [ ] `WHERE`
+  - [x] `WHERE`
   - [ ] `RETURN`
   - [ ] `CREATE`
   - [ ] `MERGE`

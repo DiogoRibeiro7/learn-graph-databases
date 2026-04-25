@@ -14,6 +14,8 @@ This folder contains the lesson content for the course.
   - Graph algorithms basics
 - `lesson_05_match_clause`
   - Deep dive on MATCH and OPTIONAL MATCH
+- `lesson_06_where_clause`
+  - Deep dive on WHERE filtering patterns
 
 ## Recommended order
 
@@ -22,6 +24,7 @@ This folder contains the lesson content for the course.
 3. `lesson_03_cypher`
 4. `lesson_04_graph_algorithms`
 5. `lesson_05_match_clause`
+6. `lesson_06_where_clause`
 
 Each lesson builds on the previous one:
 
@@ -30,6 +33,7 @@ Each lesson builds on the previous one:
 - Lesson 03 uses Cypher to query and analyse the models.
 - Lesson 04 introduces algorithmic patterns that rely on both the model and Cypher queries.
 - Lesson 05 deepens pattern matching skills with `MATCH`, paths, multiple clauses, and `OPTIONAL MATCH`.
+- Lesson 06 focuses on expressive filtering with `WHERE`, boolean logic, string operators, and existential subqueries.
 
 ## Lesson structure
 
@@ -50,6 +54,7 @@ Each lesson is paired with the repository examples and seed scripts:
 - `lesson_03_cypher` explores Cypher with the same fraud and movie example data.
 - `lesson_04_graph_algorithms` introduces path and centrality patterns using example graphs and GDS notes.
 - `lesson_05_match_clause` focuses on read-query pattern design and optional traversals.
+- `lesson_06_where_clause` focuses on filtering matched data precisely and safely.
 
 For the example domains, use the corresponding seed scripts and query runners, such as:
 
