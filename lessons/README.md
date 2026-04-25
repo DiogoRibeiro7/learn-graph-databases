@@ -20,6 +20,8 @@ This folder contains the lesson content for the course.
   - Result shaping with RETURN, DISTINCT, and map projections
 - `lesson_08_create_merge`
   - Write semantics with CREATE, MERGE, and idempotent patterns
+- `lesson_09_aggregation_functions`
+  - Aggregations with COUNT, SUM, AVG, COLLECT, MIN, and MAX
 
 ## Recommended order
 
@@ -31,6 +33,7 @@ This folder contains the lesson content for the course.
 6. `lesson_06_where_clause`
 7. `lesson_07_return_projections`
 8. `lesson_08_create_merge`
+9. `lesson_09_aggregation_functions`
 
 Each lesson builds on the previous one:
 
@@ -42,6 +45,7 @@ Each lesson builds on the previous one:
 - Lesson 06 focuses on expressive filtering with `WHERE`, boolean logic, string operators, and existential subqueries.
 - Lesson 07 focuses on result shaping with `RETURN`, aliases, pagination, and map projections.
 - Lesson 08 focuses on write patterns with `CREATE`, `MERGE`, and safe upsert workflows.
+- Lesson 09 focuses on analytical summarization with Cypher aggregation pipelines.
 
 ## Lesson structure
 
@@ -65,6 +69,7 @@ Each lesson is paired with the repository examples and seed scripts:
 - `lesson_06_where_clause` focuses on filtering matched data precisely and safely.
 - `lesson_07_return_projections` focuses on shaping query output for analysis and APIs.
 - `lesson_08_create_merge` focuses on creating graph data without introducing duplicates.
+- `lesson_09_aggregation_functions` focuses on grouped metrics and list pipelines with `WITH` and `UNWIND`.
 
 For the example domains, use the corresponding seed scripts and query runners, such as:
 
