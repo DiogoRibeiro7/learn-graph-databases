@@ -14,7 +14,7 @@
 - [ ] Add more lesson material on:
   - [x] `MATCH`
   - [x] `WHERE`
-  - [ ] `RETURN`
+  - [x] `RETURN`
   - [ ] `CREATE`
   - [ ] `MERGE`
   - [ ] aggregation

@@ -16,6 +16,8 @@ This folder contains the lesson content for the course.
   - Deep dive on MATCH and OPTIONAL MATCH
 - `lesson_06_where_clause`
   - Deep dive on WHERE filtering patterns
+- `lesson_07_return_projections`
+  - Result shaping with RETURN, DISTINCT, and map projections
 
 ## Recommended order
 
@@ -25,6 +27,7 @@ This folder contains the lesson content for the course.
 4. `lesson_04_graph_algorithms`
 5. `lesson_05_match_clause`
 6. `lesson_06_where_clause`
+7. `lesson_07_return_projections`
 
 Each lesson builds on the previous one:
 
@@ -34,6 +37,7 @@ Each lesson builds on the previous one:
 - Lesson 04 introduces algorithmic patterns that rely on both the model and Cypher queries.
 - Lesson 05 deepens pattern matching skills with `MATCH`, paths, multiple clauses, and `OPTIONAL MATCH`.
 - Lesson 06 focuses on expressive filtering with `WHERE`, boolean logic, string operators, and existential subqueries.
+- Lesson 07 focuses on result shaping with `RETURN`, aliases, pagination, and map projections.
 
 ## Lesson structure
 
@@ -55,6 +59,7 @@ Each lesson is paired with the repository examples and seed scripts:
 - `lesson_04_graph_algorithms` introduces path and centrality patterns using example graphs and GDS notes.
 - `lesson_05_match_clause` focuses on read-query pattern design and optional traversals.
 - `lesson_06_where_clause` focuses on filtering matched data precisely and safely.
+- `lesson_07_return_projections` focuses on shaping query output for analysis and APIs.
 
 For the example domains, use the corresponding seed scripts and query runners, such as:
 
