@@ -57,7 +57,8 @@ Each lesson follows this pattern:
 
 - `lesson.md` — concept and examples
 - `examples.cypher` — runnable Cypher examples
-- `exercises.md` — practice exercises and answer keys
+- `exercises.md` — practice exercises
+- `answers.cypher` — runnable answer key queries with brief comments
 
 ## How to use
 

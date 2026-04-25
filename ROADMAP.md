@@ -19,7 +19,7 @@
   - [x] `MERGE`
   - [x] aggregation
   - [x] variable-length paths
-- [ ] Add answer keys for exercises
+- [x] Add answer keys for exercises
 - [ ] Add diagrams to support lessons
 
 ## v0.3 - Applied examples
