@@ -106,6 +106,7 @@ Use the learning path and repo structure to move through the material in a pract
   - `examples/movies`
   - `examples/fraud`
   - `examples/supply-chain`
+  - `examples/recommendation`
 - Run the corresponding TypeScript seed and query scripts in `src/scripts/`.
 - Use `lessons/README.md` for a lesson index and quick navigation.
 
@@ -180,7 +181,9 @@ yarn ping
 yarn seed:movies
 yarn seed:fraud
 yarn seed:supply
+yarn seed:recommend
 yarn query:movies
+yarn query:recommend
 yarn test
 ```
 
@@ -228,6 +231,14 @@ Good for dependency and path thinking. It teaches:
 - factories
 - disruption analysis
 - upstream and downstream traversal
+
+### Recommendation graph
+Good for personalization and ranking patterns. It teaches:
+
+- user-item interaction modelling
+- collaborative filtering patterns
+- content-based filtering patterns
+- hybrid recommendation scoring
 
 ## Visual examples
 

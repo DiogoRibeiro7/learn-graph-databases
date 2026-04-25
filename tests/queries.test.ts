@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { fraudQueries, movieQueries, supplyChainQueries } from "../src/db/queries.js";
+import { fraudQueries, movieQueries, recommendationQueries, supplyChainQueries } from "../src/db/queries.js";
 
 describe("movieQueries", () => {
   it("exposes starter query strings", () => {
@@ -65,6 +65,24 @@ describe("supplyChainQueries", () => {
       "singleSourceComponents",
       "factorySinglePointDependencies",
       "multiTierExposure",
+    ]);
+  });
+});
+
+describe("recommendationQueries", () => {
+  it("includes recommendation query patterns", () => {
+    expect(recommendationQueries.usersWhoLikedXAlsoLikedY).toContain("itemTitle");
+    expect(recommendationQueries.collaborativeForUser).toContain("peerSupport");
+    expect(recommendationQueries.contentBasedForItem).toContain("sharedTags");
+    expect(recommendationQueries.hybridForUser).toContain("hybridScore");
+  });
+
+  it("defines the expected recommendation query set", () => {
+    expect(Object.keys(recommendationQueries)).toEqual([
+      "usersWhoLikedXAlsoLikedY",
+      "collaborativeForUser",
+      "contentBasedForItem",
+      "hybridForUser",
     ]);
   });
 });
