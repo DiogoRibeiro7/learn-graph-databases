@@ -12,6 +12,8 @@ This folder contains the lesson content for the course.
   - Cypher basics
 - `lesson_04_graph_algorithms`
   - Graph algorithms basics
+- `lesson_05_match_clause`
+  - Deep dive on MATCH and OPTIONAL MATCH
 
 ## Recommended order
 
@@ -19,6 +21,7 @@ This folder contains the lesson content for the course.
 2. `lesson_02_modelling`
 3. `lesson_03_cypher`
 4. `lesson_04_graph_algorithms`
+5. `lesson_05_match_clause`
 
 Each lesson builds on the previous one:
 
@@ -26,6 +29,7 @@ Each lesson builds on the previous one:
 - Lesson 02 uses those fundamentals to model a domain as a graph.
 - Lesson 03 uses Cypher to query and analyse the models.
 - Lesson 04 introduces algorithmic patterns that rely on both the model and Cypher queries.
+- Lesson 05 deepens pattern matching skills with `MATCH`, paths, multiple clauses, and `OPTIONAL MATCH`.
 
 ## Lesson structure
 
@@ -45,6 +49,7 @@ Each lesson is paired with the repository examples and seed scripts:
 - `lesson_02_modelling` uses the fraud domain and graph modelling patterns.
 - `lesson_03_cypher` explores Cypher with the same fraud and movie example data.
 - `lesson_04_graph_algorithms` introduces path and centrality patterns using example graphs and GDS notes.
+- `lesson_05_match_clause` focuses on read-query pattern design and optional traversals.
 
 For the example domains, use the corresponding seed scripts and query runners, such as:
 

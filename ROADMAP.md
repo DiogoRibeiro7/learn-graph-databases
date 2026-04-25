@@ -12,7 +12,7 @@
 
 ## v0.2 - Cypher teaching layer
 - [ ] Add more lesson material on:
-  - [ ] `MATCH`
+  - [x] `MATCH`
   - [ ] `WHERE`
   - [ ] `RETURN`
   - [ ] `CREATE`
