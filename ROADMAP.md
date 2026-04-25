@@ -18,7 +18,7 @@
   - [x] `CREATE`
   - [x] `MERGE`
   - [x] aggregation
-  - [ ] variable-length paths
+  - [x] variable-length paths
 - [ ] Add answer keys for exercises
 - [ ] Add diagrams to support lessons
 

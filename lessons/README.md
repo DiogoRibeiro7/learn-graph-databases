@@ -22,6 +22,8 @@ This folder contains the lesson content for the course.
   - Write semantics with CREATE, MERGE, and idempotent patterns
 - `lesson_09_aggregation_functions`
   - Aggregations with COUNT, SUM, AVG, COLLECT, MIN, and MAX
+- `lesson_10_variable_length_paths`
+  - Multi-hop traversal patterns and shortest path helpers
 
 ## Recommended order
 
@@ -34,6 +36,7 @@ This folder contains the lesson content for the course.
 7. `lesson_07_return_projections`
 8. `lesson_08_create_merge`
 9. `lesson_09_aggregation_functions`
+10. `lesson_10_variable_length_paths`
 
 Each lesson builds on the previous one:
 
@@ -46,6 +49,7 @@ Each lesson builds on the previous one:
 - Lesson 07 focuses on result shaping with `RETURN`, aliases, pagination, and map projections.
 - Lesson 08 focuses on write patterns with `CREATE`, `MERGE`, and safe upsert workflows.
 - Lesson 09 focuses on analytical summarization with Cypher aggregation pipelines.
+- Lesson 10 focuses on variable-length traversal, shortest paths, and path inspection.
 
 ## Lesson structure
 
@@ -70,6 +74,7 @@ Each lesson is paired with the repository examples and seed scripts:
 - `lesson_07_return_projections` focuses on shaping query output for analysis and APIs.
 - `lesson_08_create_merge` focuses on creating graph data without introducing duplicates.
 - `lesson_09_aggregation_functions` focuses on grouped metrics and list pipelines with `WITH` and `UNWIND`.
+- `lesson_10_variable_length_paths` focuses on bounded multi-hop exploration patterns.
 
 For the example domains, use the corresponding seed scripts and query runners, such as:
 
