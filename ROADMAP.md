@@ -23,7 +23,7 @@
 - [x] Add diagrams to support lessons
 
 ## v0.3 - Applied examples
-- [ ] Expand fraud detection example
+- [x] Expand fraud detection example
 - [ ] Expand supply chain example
 - [ ] Add recommendation example
 - [ ] Add access-control example

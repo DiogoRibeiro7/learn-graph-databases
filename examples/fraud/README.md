@@ -1,12 +1,12 @@
 # Fraud Example
 
-This example demonstrates a fraud analysis graph with customers, orders, credit cards, addresses, and IP addresses.
+This example demonstrates a fraud analysis graph with customers, accounts, orders, transactions, credit cards, addresses, IP addresses, and devices.
 
 ## Contents
 
 - `schema.md` - graph schema and node/relationship definitions
-- `seed.cypher` - seed data for a simple fraud scenario
-- `queries.cypher` - sample Cypher queries for fraud-related detection patterns
+- `seed.cypher` - richer seed data with account transfers and device usage
+- `queries.cypher` - sample Cypher queries for shared identifiers, rings, fan-out, and velocity
 
 ## Usage
 
@@ -24,13 +24,23 @@ yarn seed:fraud
 yarn query:fraud
 ```
 
-4. Use the sample queries to explore shared IPs and payment-card reuse.
-5. Review the community detection query in `queries.cypher` to identify customer clusters and fraud rings.
+4. Run the dedicated fraud analysis runner:
+
+```bash
+yarn analyze:fraud
+```
+
+5. Use the sample queries to explore:
+- shared IP/device/card infrastructure
+- transfer rings across accounts
+- fan-out transfer bursts
+- high-velocity card usage
 
 ## Notes
 
 The fraud example is useful for teaching:
 
 - customer/order relationships
-- suspicious connections through shared IPs or cards
-- pattern matching for fraud detection
+- suspicious connections through shared IPs, cards, and devices
+- multi-hop transfer analysis through accounts
+- pattern-based fraud detection strategies
