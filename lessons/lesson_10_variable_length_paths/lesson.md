@@ -117,3 +117,8 @@ ORDER BY hops
 ## Summary
 
 Variable-length paths are essential for multi-hop graph analysis. With bounded patterns, shortest path helpers, and path inspection functions, you can express complex traversal logic while keeping queries practical and performant.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_10_variable_length_paths.mmd for a companion Mermaid diagram.

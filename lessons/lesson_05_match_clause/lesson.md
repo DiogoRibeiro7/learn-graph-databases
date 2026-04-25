@@ -116,3 +116,8 @@ If no referrer exists, `referrer` is `null`.
 ## Summary
 
 `MATCH` is how you express graph traversal intent in Cypher. Mastering node patterns, relationship patterns, paths, multiple `MATCH` stages, and `OPTIONAL MATCH` gives you a strong foundation for all advanced Cypher query design.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_05_match_clause.mmd for a companion Mermaid diagram.

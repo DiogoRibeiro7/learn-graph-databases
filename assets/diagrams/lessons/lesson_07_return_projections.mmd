@@ -1,0 +1,7 @@
+flowchart LR
+  M[MATCH rows] --> RET[RETURN projection]
+  RET --> A[AS aliases]
+  RET --> D[DISTINCT]
+  RET --> O[ORDER BY]
+  O --> P[SKIP/LIMIT]
+  RET --> MP[Map Projection]

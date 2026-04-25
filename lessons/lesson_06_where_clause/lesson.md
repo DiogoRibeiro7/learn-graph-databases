@@ -138,3 +138,8 @@ RETURN c.name AS customersWithoutOrders
 ## Summary
 
 `WHERE` is the main filter mechanism in Cypher. With property comparisons, boolean logic, string predicates, regex, and existential subqueries, you can express precise retrieval conditions while keeping queries readable and maintainable.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_06_where_clause.mmd for a companion Mermaid diagram.

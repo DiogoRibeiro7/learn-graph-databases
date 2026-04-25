@@ -1,0 +1,8 @@
+graph LR
+  C[Customer] -->|PLACED| O1[Order]
+  C -->|PLACED| O2[Order]
+  O1 -->|SHIPPED_TO| A[Address]
+  O2 -->|SHIPPED_TO| A
+  O1 -->|FROM_IP| IP[IP]
+  O2 -->|FROM_IP| IP
+  O1 -->|PAID_WITH| CC[CreditCard]

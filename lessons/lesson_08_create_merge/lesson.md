@@ -118,3 +118,8 @@ This creates every possible pair. Link entities through proper predicates or ide
 ## Summary
 
 `CREATE` and `MERGE` define whether your writes are append-only or idempotent. Correct use of each clause, plus `ON CREATE SET` and `ON MATCH SET`, is essential for predictable graph data pipelines.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_08_create_merge.mmd for a companion Mermaid diagram.

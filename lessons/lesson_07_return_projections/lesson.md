@@ -132,3 +132,8 @@ LIMIT 10
 ## Summary
 
 `RETURN` is where query output becomes a usable result contract. By combining aliases, sorting, pagination, `DISTINCT`, and map projections, you can shape Cypher output for analysis, dashboards, and APIs with clear semantics.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_07_return_projections.mmd for a companion Mermaid diagram.

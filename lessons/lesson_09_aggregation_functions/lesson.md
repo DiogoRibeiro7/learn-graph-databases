@@ -117,3 +117,8 @@ This pattern is useful for staged transformations.
 ## Summary
 
 Aggregation in Cypher turns traversal output into decision-ready summaries. Mastering implicit grouping, `COUNT(*)` vs `COUNT(n)`, and `WITH`/`UNWIND` pipelines helps you write reliable analytical graph queries.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_09_aggregation_functions.mmd for a companion Mermaid diagram.

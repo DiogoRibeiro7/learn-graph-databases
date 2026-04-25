@@ -20,7 +20,7 @@
   - [x] aggregation
   - [x] variable-length paths
 - [x] Add answer keys for exercises
-- [ ] Add diagrams to support lessons
+- [x] Add diagrams to support lessons
 
 ## v0.3 - Applied examples
 - [ ] Expand fraud detection example

@@ -166,3 +166,8 @@ This lesson introduced graph algorithm thinking by focusing on shortest-path and
 ## What's next
 
 Explore the project examples and Neo4j GDS notes to see how these patterns apply to real graphs.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_04_graph_algorithms.mmd for a companion Mermaid diagram.

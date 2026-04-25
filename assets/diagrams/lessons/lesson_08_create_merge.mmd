@@ -1,0 +1,6 @@
+flowchart LR
+  C1[CREATE] --> N1[Always inserts]
+  M1[MERGE] --> N2[Match or create]
+  M1 --> OCS[ON CREATE SET]
+  M1 --> OMS[ON MATCH SET]
+  BAD[Volatile fields in MERGE key] --> DUP[Duplicate nodes risk]

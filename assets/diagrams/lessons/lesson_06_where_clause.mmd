@@ -1,0 +1,7 @@
+flowchart LR
+  M[MATCH] --> W[WHERE]
+  W --> R[RETURN]
+  W --> B1[AND/OR/NOT]
+  W --> B2[STARTS WITH / CONTAINS / ENDS WITH]
+  W --> B3[Regex =~]
+  W --> B4[EXISTS { ... }]

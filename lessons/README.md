@@ -95,3 +95,5 @@ yarn query:fraud
 
 Visual diagrams for the example domains are available in `assets/diagrams/`.
 Use them as a companion while reading the lesson content and exploring the example graphs.
+
+Lesson-specific Mermaid diagrams are available in `assets/diagrams/lessons/` and referenced from each `lesson.md`.
