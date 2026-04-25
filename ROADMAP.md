@@ -24,7 +24,7 @@
 
 ## v0.3 - Applied examples
 - [x] Expand fraud detection example
-- [ ] Expand supply chain example
+- [x] Expand supply chain example
 - [ ] Add recommendation example
 - [ ] Add access-control example
 - [ ] Add knowledge-graph example

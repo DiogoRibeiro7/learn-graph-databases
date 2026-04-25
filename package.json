@@ -23,6 +23,7 @@
     "query:fraud": "tsx src/scripts/runFraudQueries.ts",
     "analyze:fraud": "tsx src/scripts/runFraudAnalysis.ts",
     "query:supply": "tsx src/scripts/runSupplyChainQueries.ts",
+    "analyze:supply": "tsx src/scripts/runSupplyChainAnalysis.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },

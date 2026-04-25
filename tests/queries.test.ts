@@ -53,12 +53,18 @@ describe("supplyChainQueries", () => {
     expect(supplyChainQueries.supplierComponentFlow).toContain("USES");
     expect(supplyChainQueries.supplierShortestPath).toContain("shortestPath");
     expect(supplyChainQueries.supplierShortestPath).toContain("length(p) AS hops");
+    expect(supplyChainQueries.singleSourceComponents).toContain("size(suppliers) = 1");
+    expect(supplyChainQueries.factorySinglePointDependencies).toContain("soleSupplier");
+    expect(supplyChainQueries.multiTierExposure).toContain("r.tier > 1");
   });
 
   it("defines the expected supply-chain query set", () => {
     expect(Object.keys(supplyChainQueries)).toEqual([
       "supplierComponentFlow",
       "supplierShortestPath",
+      "singleSourceComponents",
+      "factorySinglePointDependencies",
+      "multiTierExposure",
     ]);
   });
 });

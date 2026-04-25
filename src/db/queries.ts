@@ -144,4 +144,38 @@ export const supplyChainQueries = {
     MATCH p = shortestPath((s1)-[:SUPPLIES*..4]-(s2))
     RETURN p, length(p) AS hops
   `,
+
+  singleSourceComponents: `
+    MATCH (c:Component)<-[:SUPPLIES]-(s:Supplier)
+    WITH c, collect(s) AS suppliers
+    WHERE size(suppliers) = 1
+    RETURN c.name AS component,
+           suppliers[0].name AS soleSupplier,
+           suppliers[0].riskScore AS supplierRisk
+    ORDER BY supplierRisk DESC, component
+  `,
+
+  factorySinglePointDependencies: `
+    MATCH (f:Factory)-[:USES]->(c:Component)<-[:SUPPLIES]-(s:Supplier)
+    WITH f, c, collect(s) AS suppliers
+    WHERE size(suppliers) = 1
+    WITH f, c, suppliers[0] AS soleSupplier
+    RETURN f.name AS factory,
+           c.name AS component,
+           soleSupplier.name AS soleSupplier,
+           soleSupplier.riskScore AS riskScore,
+           soleSupplier.region AS region
+    ORDER BY riskScore DESC, factory, component
+  `,
+
+  multiTierExposure: `
+    MATCH (f:Factory)-[:USES]->(c:Component)<-[r:SUPPLIES]-(s:Supplier)
+    WHERE r.tier > 1
+    RETURN f.name AS factory,
+           c.name AS component,
+           s.name AS upstreamSupplier,
+           r.tier AS supplierTier,
+           s.riskScore AS riskScore
+    ORDER BY riskScore DESC, supplierTier DESC, factory
+  `,
 } as const;
