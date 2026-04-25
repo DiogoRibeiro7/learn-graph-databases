@@ -1,0 +1,7 @@
+graph LR
+  C[Customer] -->|PLACED| O[Order]
+  O -->|PAID_WITH| CC[CreditCard]
+  O -->|FROM_IP| IP[IP]
+  Q1[MATCH] --> Q2[WHERE]
+  Q2 --> Q3[RETURN]
+  Q3 --> Q4[WITH]

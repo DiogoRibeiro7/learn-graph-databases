@@ -1,0 +1,7 @@
+flowchart LR
+  M[MATCH rows] --> G[Grouping keys]
+  G --> C1[COUNT]
+  G --> C2[SUM/AVG/MIN/MAX]
+  G --> C3[COLLECT]
+  C3 --> U[UNWIND]
+  U --> Next[Next query stage]

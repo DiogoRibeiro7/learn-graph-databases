@@ -1,0 +1,10 @@
+graph LR
+  C[Customer] -->|PLACED| O[Order]
+  O -->|PAID_WITH| CC[CreditCard]
+  O -->|FROM_IP| IP[IP]
+  C -. OPTIONAL MATCH .-> R[Referrer]
+  subgraph Patterns
+    M1[(Node)]
+    M2[(Relationship)]
+    M3[(Path)]
+  end

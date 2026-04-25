@@ -12,19 +12,19 @@
 
 ## v0.2 - Cypher teaching layer
 - [ ] Add more lesson material on:
-  - [ ] `MATCH`
-  - [ ] `WHERE`
-  - [ ] `RETURN`
-  - [ ] `CREATE`
-  - [ ] `MERGE`
-  - [ ] aggregation
-  - [ ] variable-length paths
-- [ ] Add answer keys for exercises
-- [ ] Add diagrams to support lessons
+  - [x] `MATCH`
+  - [x] `WHERE`
+  - [x] `RETURN`
+  - [x] `CREATE`
+  - [x] `MERGE`
+  - [x] aggregation
+  - [x] variable-length paths
+- [x] Add answer keys for exercises
+- [x] Add diagrams to support lessons
 
 ## v0.3 - Applied examples
-- [ ] Expand fraud detection example
-- [ ] Expand supply chain example
+- [x] Expand fraud detection example
+- [x] Expand supply chain example
 - [ ] Add recommendation example
 - [ ] Add access-control example
 - [ ] Add knowledge-graph example

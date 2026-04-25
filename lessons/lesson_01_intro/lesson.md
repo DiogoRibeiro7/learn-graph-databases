@@ -59,3 +59,8 @@ This lesson introduced the graph database model, including nodes, relationships,
 ## What's next
 
 Continue to Lesson 02 to learn how to model a domain as a graph and design relationships for real-world questions.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_01_intro.mmd for a companion Mermaid diagram.

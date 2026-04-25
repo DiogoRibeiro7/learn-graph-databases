@@ -60,3 +60,8 @@ This lesson covered graph modelling, including how to choose nodes, relationship
 ## What's next
 
 Continue to Lesson 03 to learn how to query graph models using Cypher and explore the data you modelled.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_02_modelling.mmd for a companion Mermaid diagram.

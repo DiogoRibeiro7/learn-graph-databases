@@ -1,0 +1,8 @@
+graph LR
+  A[Customer A] -->|PLACED| O1[Order 1]
+  B[Customer B] -->|PLACED| O2[Order 2]
+  O1 -. shared IP .-> IP[IP]
+  O2 -. shared IP .-> IP
+  A --- B
+  CEN[Centrality]
+  COMM[Community Detection]

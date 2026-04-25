@@ -1,0 +1,8 @@
+graph LR
+  A1[Account A1] -->|TRANSFERRED_TO| A2[Account A2]
+  A2 -->|TRANSFERRED_TO| A3[Account A3]
+  A3 -->|TRANSFERRED_TO| A4[Account A4]
+  VL[:TRANSFERRED_TO*1..3]
+  SP[shortestPath]
+  ASP[allShortestPaths]
+  PF[length/nodes/relationships]

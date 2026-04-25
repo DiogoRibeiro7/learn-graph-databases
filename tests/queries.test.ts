@@ -28,12 +28,21 @@ describe("fraudQueries", () => {
     expect(fraudQueries.customersSharingIp).toContain("FROM_IP");
     expect(fraudQueries.customersSharingIp).toContain("collect(DISTINCT c.name)");
     expect(fraudQueries.sharedCreditCards).toContain("PAID_WITH");
+    expect(fraudQueries.suspiciousTransferRings).toContain("TRANSFERRED_TO*3..5");
+    expect(fraudQueries.fanOutAccounts).toContain("$windowStart");
+    expect(fraudQueries.highVelocityCards).toContain("duration.between");
+    expect(fraudQueries.customersSharingDevice).toContain("FROM_DEVICE");
   });
 
   it("defines the expected fraud query set", () => {
     expect(Object.keys(fraudQueries)).toEqual([
       "customersSharingIp",
       "sharedCreditCards",
+      "suspiciousTransferRings",
+      "fanOutAccounts",
+      "highVelocityCards",
+      "customersSharingDevice",
+      "communityDetection",
     ]);
   });
 });
@@ -44,12 +53,18 @@ describe("supplyChainQueries", () => {
     expect(supplyChainQueries.supplierComponentFlow).toContain("USES");
     expect(supplyChainQueries.supplierShortestPath).toContain("shortestPath");
     expect(supplyChainQueries.supplierShortestPath).toContain("length(p) AS hops");
+    expect(supplyChainQueries.singleSourceComponents).toContain("size(suppliers) = 1");
+    expect(supplyChainQueries.factorySinglePointDependencies).toContain("soleSupplier");
+    expect(supplyChainQueries.multiTierExposure).toContain("r.tier > 1");
   });
 
   it("defines the expected supply-chain query set", () => {
     expect(Object.keys(supplyChainQueries)).toEqual([
       "supplierComponentFlow",
       "supplierShortestPath",
+      "singleSourceComponents",
+      "factorySinglePointDependencies",
+      "multiTierExposure",
     ]);
   });
 });

@@ -288,3 +288,8 @@ This lesson explained Cypher basics, including pattern matching, filtering, aggr
 ## What's next
 
 Continue to Lesson 04 to see how graph algorithms extend Cypher concepts and help answer more advanced connection questions.
+
+
+## Diagram
+
+See ../../assets/diagrams/lessons/lesson_03_cypher.mmd for a companion Mermaid diagram.
