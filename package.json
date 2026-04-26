@@ -16,6 +16,7 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "check": "yarn typecheck && yarn lint",
     "ping": "tsx src/scripts/ping.ts",
+    "seed": "tsx src/scripts/seed.ts",
     "seed:movies": "tsx src/scripts/seedMovies.ts",
     "seed:fraud": "tsx src/scripts/seedFraud.ts",
     "seed:supply": "tsx src/scripts/seedSupplyChain.ts",

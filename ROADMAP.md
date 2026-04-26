@@ -32,7 +32,7 @@
 ## v0.4 - TypeScript integration
 - [x] Add a small demo API
 - [x] Add query modules by domain
-- [ ] Add reusable seed framework
+- [x] Add reusable seed framework
 - [ ] Add structured logging
 - [ ] Add better error classification
 

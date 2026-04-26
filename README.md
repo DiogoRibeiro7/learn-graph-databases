@@ -186,6 +186,8 @@ yarn seed:supply
 yarn seed:recommend
 yarn seed:rbac
 yarn seed:kg
+yarn seed -- movies
+yarn seed -- fraud --clear
 yarn query:movies
 yarn query:recommend
 yarn query:rbac
@@ -193,6 +195,12 @@ yarn query:kg
 yarn api:start
 yarn test
 ```
+
+Generic seed framework:
+
+- `yarn seed -- --list` to see domains
+- `yarn seed -- <domain>` to seed one domain
+- `yarn seed -- <domain> --clear` to clear graph before seeding
 
 ## Demo REST API
 
