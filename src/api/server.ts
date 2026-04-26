@@ -1,6 +1,6 @@
 import express, { type NextFunction, type Request, type Response } from "express";
 import { createDriver } from "../db/driver.js";
-import { formatNeo4jErrorMessage } from "../db/errors.js";
+import { classifyNeo4jError, formatNeo4jErrorMessage, getNeo4jErrorCode, getNeo4jErrorHttpStatus, isRetryableNeo4jError } from "../db/errors.js";
 import { movieQueries, fraudQueries } from "../db/queries.js";
 import { runQuery } from "../db/session.js";
 import { logger } from "../logging/logger.js";
@@ -94,8 +94,25 @@ app.get("/api/fraud/card-velocity", async (req: Request, res: Response, next: Ne
 
 app.use((error: unknown, _req: Request, res: Response, _next: NextFunction) => {
   const message = formatNeo4jErrorMessage(error);
-  logger.error("API request failed.", { error: message });
-  res.status(500).json({ error: message });
+  const category = classifyNeo4jError(error);
+  const code = getNeo4jErrorCode(error);
+  const status = getNeo4jErrorHttpStatus(error);
+  const retryable = isRetryableNeo4jError(error);
+
+  logger.error("API request failed.", {
+    status,
+    category,
+    code,
+    retryable,
+    error: message,
+  });
+
+  res.status(status).json({
+    error: message,
+    category,
+    code,
+    retryable,
+  });
 });
 
 const server = app.listen(port, () => {

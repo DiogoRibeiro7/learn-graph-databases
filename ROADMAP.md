@@ -34,7 +34,7 @@
 - [x] Add query modules by domain
 - [x] Add reusable seed framework
 - [x] Add structured logging
-- [ ] Add better error classification
+- [x] Add better error classification
 
 ## v0.5 - Quality and teaching polish
 - [ ] Add CI workflow
