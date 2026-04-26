@@ -27,7 +27,7 @@
 - [x] Expand supply chain example
 - [x] Add recommendation example
 - [x] Add access-control example
-- [ ] Add knowledge-graph example
+- [x] Add knowledge-graph example
 
 ## v0.4 - TypeScript integration
 - [ ] Add a small demo API

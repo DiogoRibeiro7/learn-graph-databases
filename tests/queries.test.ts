@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { fraudQueries, movieQueries, rbacQueries, recommendationQueries, supplyChainQueries } from "../src/db/queries.js";
+import {
+  fraudQueries,
+  knowledgeGraphQueries,
+  movieQueries,
+  rbacQueries,
+  recommendationQueries,
+  supplyChainQueries,
+} from "../src/db/queries.js";
 
 describe("movieQueries", () => {
   it("exposes starter query strings", () => {
@@ -102,6 +109,24 @@ describe("rbacQueries", () => {
       "userActionsOnResource",
       "userCapabilities",
       "explainUserAccessPath",
+    ]);
+  });
+});
+
+describe("knowledgeGraphQueries", () => {
+  it("includes knowledge-graph query patterns", () => {
+    expect(knowledgeGraphQueries.directExpertsForConcept).toContain("AUTHORED");
+    expect(knowledgeGraphQueries.inferredExpertsForConcept).toContain("RELATED_TO*0..1");
+    expect(knowledgeGraphQueries.organizationRelevanceForConcept).toContain("FOCUSES_ON");
+    expect(knowledgeGraphQueries.bridgePeopleAcrossConceptNeighborhoods).toContain("semanticNeighborhood");
+  });
+
+  it("defines the expected knowledge-graph query set", () => {
+    expect(Object.keys(knowledgeGraphQueries)).toEqual([
+      "directExpertsForConcept",
+      "inferredExpertsForConcept",
+      "organizationRelevanceForConcept",
+      "bridgePeopleAcrossConceptNeighborhoods",
     ]);
   });
 });

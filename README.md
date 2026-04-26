@@ -108,6 +108,7 @@ Use the learning path and repo structure to move through the material in a pract
   - `examples/supply-chain`
   - `examples/recommendation`
   - `examples/rbac`
+  - `examples/knowledge-graph`
 - Run the corresponding TypeScript seed and query scripts in `src/scripts/`.
 - Use `lessons/README.md` for a lesson index and quick navigation.
 
@@ -184,9 +185,11 @@ yarn seed:fraud
 yarn seed:supply
 yarn seed:recommend
 yarn seed:rbac
+yarn seed:kg
 yarn query:movies
 yarn query:recommend
 yarn query:rbac
+yarn query:kg
 yarn test
 ```
 
@@ -250,6 +253,14 @@ Good for authorization modelling. It teaches:
 - role inheritance with transitive traversal
 - direct access checks in Cypher
 - explainable permission paths
+
+### Knowledge graph
+Good for semantic modelling and reasoning-style queries. It teaches:
+
+- entities, concepts, and fact-style relationships
+- multi-hop semantic neighborhood traversal
+- inference-like expert discovery queries
+- concept-centric organization relevance patterns
 
 ## Visual examples
 

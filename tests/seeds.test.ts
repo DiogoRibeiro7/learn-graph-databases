@@ -4,6 +4,7 @@ import { seedFraud } from "../src/seeds/fraud.js";
 import { seedSupplyChain } from "../src/seeds/supplyChain.js";
 import { seedRecommendation } from "../src/seeds/recommendation.js";
 import { seedRbac } from "../src/seeds/rbac.js";
+import { seedKnowledgeGraph } from "../src/seeds/knowledgeGraph.js";
 import { runQuery } from "../src/db/session.js";
 
 vi.mock("../src/db/session.js", () => ({
@@ -52,5 +53,12 @@ describe("seed scripts", () => {
 
     expect(runQuery).toHaveBeenCalledTimes(1);
     expect(runQuery).toHaveBeenCalledWith(expect.anything(), expect.stringContaining("ASSIGNED_ROLE"));
+  });
+
+  it("runs seedKnowledgeGraph with the expected query execution", async () => {
+    await seedKnowledgeGraph({} as any);
+
+    expect(runQuery).toHaveBeenCalledTimes(1);
+    expect(runQuery).toHaveBeenCalledWith(expect.anything(), expect.stringContaining("RELATED_TO"));
   });
 });

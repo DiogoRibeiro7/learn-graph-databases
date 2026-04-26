@@ -21,6 +21,7 @@
     "seed:supply": "tsx src/scripts/seedSupplyChain.ts",
     "seed:recommend": "tsx src/scripts/seedRecommendation.ts",
     "seed:rbac": "tsx src/scripts/seedRbac.ts",
+    "seed:kg": "tsx src/scripts/seedKnowledgeGraph.ts",
     "query:movies": "tsx src/scripts/runMovieQueries.ts",
     "query:fraud": "tsx src/scripts/runFraudQueries.ts",
     "analyze:fraud": "tsx src/scripts/runFraudAnalysis.ts",
@@ -28,6 +29,7 @@
     "analyze:supply": "tsx src/scripts/runSupplyChainAnalysis.ts",
     "query:recommend": "tsx src/scripts/runRecommendationQueries.ts",
     "query:rbac": "tsx src/scripts/runRbacQueries.ts",
+    "query:kg": "tsx src/scripts/runKnowledgeGraphQueries.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },
