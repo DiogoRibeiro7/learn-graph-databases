@@ -30,7 +30,7 @@
 - [x] Add knowledge-graph example
 
 ## v0.4 - TypeScript integration
-- [ ] Add a small demo API
+- [x] Add a small demo API
 - [ ] Add query modules by domain
 - [ ] Add reusable seed framework
 - [ ] Add structured logging

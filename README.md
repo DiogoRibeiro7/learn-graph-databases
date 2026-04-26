@@ -190,8 +190,27 @@ yarn query:movies
 yarn query:recommend
 yarn query:rbac
 yarn query:kg
+yarn api:start
 yarn test
 ```
+
+## Demo REST API
+
+Start the API server:
+
+```bash
+yarn api:start
+```
+
+Default port is `3000` (override with `PORT`).
+
+Example endpoints:
+
+- `GET /health`
+- `GET /api/movies?genre=Drama`
+- `GET /api/movies/actor/Keanu%20Reeves`
+- `GET /api/fraud/shared-ip`
+- `GET /api/fraud/card-velocity?minOrders=3&maxSeconds=1800`
 
 ## Contributing
 
