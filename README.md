@@ -14,6 +14,7 @@ A teaching repository for graph databases, Neo4j, Cypher, graph modelling, and p
 - [Stack](#stack)
 - [Repository structure](#repository-structure)
 - [Learning path](#learning-path)
+- [Graph algorithms section](#graph-algorithms-section)
 - [Quick start](#quick-start)
 - [Scripts](#scripts)
 - [Teaching design](#teaching-design)
@@ -119,6 +120,23 @@ Use the learning path and repo structure to move through the material in a pract
 5. Run the Cypher queries
 6. Read the TypeScript integration code
 7. Extend the examples with your own models
+
+## Graph algorithms section
+
+Use these materials together for the advanced algorithms track:
+
+- Concept overview: `docs/10-graph-algorithms-overview.md`
+- GDS integration notes: `docs/09-neo4j-gds-integration-notes.md`
+- Guided lesson: `lessons/lesson_04_graph_algorithms/lesson.md`
+- Centrality example dataset: `examples/centrality/README.md`
+- Centrality query runner: `src/scripts/runCentralityQueries.ts`
+
+Suggested sequence:
+
+1. Read the overview doc.
+2. Work through the lesson examples and exercises.
+3. Run the centrality seed/query scripts.
+4. Use GDS notes to extend to weighted shortest path and community algorithms.
 
 ## Quick start
 

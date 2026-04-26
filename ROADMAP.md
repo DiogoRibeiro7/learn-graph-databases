@@ -44,7 +44,7 @@
 - [ ] Add course navigation in the README
 
 ## v0.6 - Advanced graph topics
-- [ ] Add graph algorithms section
+- [x] Add graph algorithms section
 - [ ] Add shortest path examples
 - [x] Add centrality examples
 - [ ] Add community detection overview
