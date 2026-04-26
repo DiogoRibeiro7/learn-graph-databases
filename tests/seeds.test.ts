@@ -6,6 +6,7 @@ import { seedRecommendation } from "../src/seeds/recommendation.js";
 import { seedRbac } from "../src/seeds/rbac.js";
 import { seedKnowledgeGraph } from "../src/seeds/knowledgeGraph.js";
 import { seedCentrality } from "../src/seeds/centrality.js";
+import { seedOntology } from "../src/seeds/ontology.js";
 import { runQuery } from "../src/db/session.js";
 
 vi.mock("../src/db/session.js", () => ({
@@ -68,5 +69,12 @@ describe("seed scripts", () => {
 
     expect(runQuery).toHaveBeenCalledTimes(1);
     expect(runQuery).toHaveBeenCalledWith(expect.anything(), expect.stringContaining("INTERACTS_WITH"));
+  });
+
+  it("runs seedOntology with the expected query execution", async () => {
+    await seedOntology({} as any);
+
+    expect(runQuery).toHaveBeenCalledTimes(1);
+    expect(runQuery).toHaveBeenCalledWith(expect.anything(), expect.stringContaining("OntologyClass"));
   });
 });

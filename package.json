@@ -24,6 +24,7 @@
     "seed:rbac": "tsx src/scripts/seedRbac.ts",
     "seed:kg": "tsx src/scripts/seedKnowledgeGraph.ts",
     "seed:centrality": "tsx src/scripts/seedCentrality.ts",
+    "seed:ontology": "tsx src/scripts/seedOntology.ts",
     "query:movies": "tsx src/scripts/runMovieQueries.ts",
     "query:fraud": "tsx src/scripts/runFraudQueries.ts",
     "analyze:fraud": "tsx src/scripts/runFraudAnalysis.ts",
@@ -33,6 +34,7 @@
     "query:rbac": "tsx src/scripts/runRbacQueries.ts",
     "query:kg": "tsx src/scripts/runKnowledgeGraphQueries.ts",
     "query:centrality": "tsx src/scripts/runCentralityQueries.ts",
+    "query:ontology": "tsx src/scripts/runOntologyQueries.ts",
     "api:start": "tsx src/api/server.ts",
     "test": "vitest run",
     "test:watch": "vitest"

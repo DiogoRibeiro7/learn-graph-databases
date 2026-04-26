@@ -4,6 +4,7 @@ import {
   fraudQueries,
   knowledgeGraphQueries,
   movieQueries,
+  ontologyQueries,
   rbacQueries,
   recommendationQueries,
   supplyChainQueries,
@@ -148,6 +149,24 @@ describe("centralityQueries", () => {
       "betweenness",
       "degree",
       "dropGraph",
+    ]);
+  });
+});
+
+describe("ontologyQueries", () => {
+  it("includes ontology query patterns", () => {
+    expect(ontologyQueries.entitiesMissingType).toContain("INSTANCE_OF");
+    expect(ontologyQueries.subclassExpansion).toContain("SUBCLASS_OF*1..");
+    expect(ontologyQueries.inferredTherapiesForPatient).toContain("TARGETS");
+    expect(ontologyQueries.explainInferredTherapyPaths).toContain("inferencePath");
+  });
+
+  it("defines the expected ontology query set", () => {
+    expect(Object.keys(ontologyQueries)).toEqual([
+      "entitiesMissingType",
+      "subclassExpansion",
+      "inferredTherapiesForPatient",
+      "explainInferredTherapyPaths",
     ]);
   });
 });

@@ -110,6 +110,7 @@ Use the learning path and repo structure to move through the material in a pract
   - `examples/rbac`
   - `examples/knowledge-graph`
   - `examples/centrality`
+  - `examples/ontology`
 - Run the corresponding TypeScript seed and query scripts in `src/scripts/`.
 - Use `lessons/README.md` for a lesson index and quick navigation.
 
@@ -188,6 +189,7 @@ yarn seed:recommend
 yarn seed:rbac
 yarn seed:kg
 yarn seed:centrality
+yarn seed:ontology
 yarn seed -- movies
 yarn seed -- fraud --clear
 yarn query:movies
@@ -195,6 +197,7 @@ yarn query:recommend
 yarn query:rbac
 yarn query:kg
 yarn query:centrality
+yarn query:ontology
 yarn api:start
 yarn test
 ```
@@ -309,6 +312,14 @@ Good for influence and resilience analysis. It teaches:
 - Betweenness centrality for critical connectors
 - Degree centrality for local hub activity
 - GDS projection lifecycle and algorithm execution
+
+### Ontology-driven graph
+Good for semantic constraints and reasoning workflows. It teaches:
+
+- ontology classes/properties as graph data
+- instance conformance patterns (`INSTANCE_OF`)
+- subclass expansion and transitive reasoning
+- biomedical inference-style paths for therapy suggestions
 
 ## Visual examples
 

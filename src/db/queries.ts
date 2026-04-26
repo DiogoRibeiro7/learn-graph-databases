@@ -9,6 +9,7 @@ export { movieQueries } from "./queryModules/movies.js";
 export { fraudQueries } from "./queryModules/fraud.js";
 export { supplyChainQueries } from "./queryModules/supplyChain.js";
 export { centralityQueries } from "./queryModules/centrality.js";
+export { ontologyQueries } from "./queryModules/ontology.js";
 
 export const recommendationQueries = {
   usersWhoLikedXAlsoLikedY: `

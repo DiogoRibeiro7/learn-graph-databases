@@ -7,6 +7,7 @@ import { seedSupplyChain } from "./supplyChain.js";
 import { seedRecommendation } from "./recommendation.js";
 import { seedRbac } from "./rbac.js";
 import { seedKnowledgeGraph } from "./knowledgeGraph.js";
+import { seedOntology } from "./ontology.js";
 
 export const seedDomains = [
   "movies",
@@ -15,6 +16,7 @@ export const seedDomains = [
   "recommend",
   "rbac",
   "kg",
+  "ontology",
 ] as const;
 
 export type SeedDomain = (typeof seedDomains)[number];
@@ -36,6 +38,7 @@ export const seedRegistry = {
   },
   rbac: { domain: "rbac", description: "RBAC authorization dataset", seed: seedRbac },
   kg: { domain: "kg", description: "Knowledge graph dataset", seed: seedKnowledgeGraph },
+  ontology: { domain: "ontology", description: "Ontology-driven biomedical dataset", seed: seedOntology },
 } as const satisfies Record<SeedDomain, SeedDefinition>;
 
 const definitions: readonly SeedDefinition[] = seedDomains.map((domain) => seedRegistry[domain]);

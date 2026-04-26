@@ -54,7 +54,7 @@
 - [ ] Add RDF overview
 - [ ] Add SPARQL overview
 - [ ] Compare property graphs vs RDF
-- [ ] Add ontology-driven examples
+- [x] Add ontology-driven examples
 
 ## v1.0 - Stable teaching repository
 - [ ] Complete course-style lessons
