@@ -33,7 +33,7 @@
 - [x] Add a small demo API
 - [x] Add query modules by domain
 - [x] Add reusable seed framework
-- [ ] Add structured logging
+- [x] Add structured logging
 - [ ] Add better error classification
 
 ## v0.5 - Quality and teaching polish

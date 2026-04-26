@@ -236,6 +236,18 @@ Domain query logic is organized under `src/db/queryModules/`:
 
 The runners call `runQuery` for execution and use typed module contracts/mappers for parameter and row shaping.
 
+## Structured logging
+
+The repository uses a structured logger in `src/logging/logger.ts`.
+
+Supported environment variables:
+
+- `LOG_FORMAT=json` to emit JSON lines (default is plain text)
+- `LOG_LEVEL=debug|info|warn|error` to control verbosity (default `info`)
+- `LOG_SERVICE=<name>` to override service name in log metadata
+
+Each log event includes timestamp, level, service, environment, process ID, and optional contextual fields.
+
 ## Contributing
 
 If you want to help improve the repository, please read [CONTRIBUTING.md](./CONTRIBUTING.md) and use the provided issue and pull request templates.
