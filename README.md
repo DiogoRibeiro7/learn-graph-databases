@@ -109,6 +109,7 @@ Use the learning path and repo structure to move through the material in a pract
   - `examples/recommendation`
   - `examples/rbac`
   - `examples/knowledge-graph`
+  - `examples/centrality`
 - Run the corresponding TypeScript seed and query scripts in `src/scripts/`.
 - Use `lessons/README.md` for a lesson index and quick navigation.
 
@@ -186,12 +187,14 @@ yarn seed:supply
 yarn seed:recommend
 yarn seed:rbac
 yarn seed:kg
+yarn seed:centrality
 yarn seed -- movies
 yarn seed -- fraud --clear
 yarn query:movies
 yarn query:recommend
 yarn query:rbac
 yarn query:kg
+yarn query:centrality
 yarn api:start
 yarn test
 ```
@@ -298,6 +301,14 @@ Good for semantic modelling and reasoning-style queries. It teaches:
 - multi-hop semantic neighborhood traversal
 - inference-like expert discovery queries
 - concept-centric organization relevance patterns
+
+### Centrality graph
+Good for influence and resilience analysis. It teaches:
+
+- PageRank for influencer detection
+- Betweenness centrality for critical connectors
+- Degree centrality for local hub activity
+- GDS projection lifecycle and algorithm execution
 
 ## Visual examples
 

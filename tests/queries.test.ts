@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  centralityQueries,
   fraudQueries,
   knowledgeGraphQueries,
   movieQueries,
@@ -127,6 +128,26 @@ describe("knowledgeGraphQueries", () => {
       "inferredExpertsForConcept",
       "organizationRelevanceForConcept",
       "bridgePeopleAcrossConceptNeighborhoods",
+    ]);
+  });
+});
+
+describe("centralityQueries", () => {
+  it("includes centrality query patterns", () => {
+    expect(centralityQueries.projectGraph).toContain("gds.graph.project");
+    expect(centralityQueries.pageRank).toContain("gds.pageRank.stream");
+    expect(centralityQueries.betweenness).toContain("gds.betweenness.stream");
+    expect(centralityQueries.degree).toContain("gds.degree.stream");
+    expect(centralityQueries.dropGraph).toContain("gds.graph.drop");
+  });
+
+  it("defines the expected centrality query set", () => {
+    expect(Object.keys(centralityQueries)).toEqual([
+      "projectGraph",
+      "pageRank",
+      "betweenness",
+      "degree",
+      "dropGraph",
     ]);
   });
 });

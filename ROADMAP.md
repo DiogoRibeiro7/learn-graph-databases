@@ -46,7 +46,7 @@
 ## v0.6 - Advanced graph topics
 - [ ] Add graph algorithms section
 - [ ] Add shortest path examples
-- [ ] Add centrality examples
+- [x] Add centrality examples
 - [ ] Add community detection overview
 - [ ] Add Neo4j Graph Data Science integration notes
 
