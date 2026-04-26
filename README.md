@@ -212,6 +212,16 @@ Example endpoints:
 - `GET /api/fraud/shared-ip`
 - `GET /api/fraud/card-velocity?minOrders=3&maxSeconds=1800`
 
+## Query modules
+
+Domain query logic is organized under `src/db/queryModules/`:
+
+- `movies.ts`
+- `fraud.ts`
+- `supplyChain.ts`
+
+The runners call `runQuery` for execution and use typed module contracts/mappers for parameter and row shaping.
+
 ## Contributing
 
 If you want to help improve the repository, please read [CONTRIBUTING.md](./CONTRIBUTING.md) and use the provided issue and pull request templates.

@@ -3,6 +3,7 @@ import { runQuery } from "../db/session.js";
 import { formatNeo4jErrorMessage } from "../db/errors.js";
 import { logger } from "../logging/logger.js";
 import { supplyChainQueries } from "../db/queries.js";
+import { mapSupplierComponentFlowRows } from "../db/queryModules/supplyChain.js";
 
 async function main(): Promise<void> {
   const driver = createDriver();
@@ -12,11 +13,7 @@ async function main(): Promise<void> {
 
     const flowResult = await runQuery(driver, supplyChainQueries.supplierComponentFlow);
     console.log("\n=== Supplier-Component-Factory Flow ===");
-    console.table(flowResult.records.map((record) => ({
-      supplier: record.get("supplier"),
-      component: record.get("component"),
-      factory: record.get("factory"),
-    })));
+    console.table(mapSupplierComponentFlowRows(flowResult.records));
 
     const pathResult = await runQuery(driver, supplyChainQueries.supplierShortestPath);
     console.log("\n=== Supplier Shortest Path ===");

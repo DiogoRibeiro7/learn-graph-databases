@@ -31,7 +31,7 @@
 
 ## v0.4 - TypeScript integration
 - [x] Add a small demo API
-- [ ] Add query modules by domain
+- [x] Add query modules by domain
 - [ ] Add reusable seed framework
 - [ ] Add structured logging
 - [ ] Add better error classification

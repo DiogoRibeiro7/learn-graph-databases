@@ -3,6 +3,7 @@ import { runQuery } from "../db/session.js";
 import { formatNeo4jErrorMessage } from "../db/errors.js";
 import { logger } from "../logging/logger.js";
 import { fraudQueries } from "../db/queries.js";
+import { mapSharedCardRows, mapSharedIpRows, type FanOutAccountsParams, type HighVelocityCardsParams } from "../db/queryModules/fraud.js";
 
 async function main(): Promise<void> {
   const driver = createDriver();
@@ -12,18 +13,11 @@ async function main(): Promise<void> {
 
     const sharedIpResult = await runQuery(driver, fraudQueries.customersSharingIp);
     console.log("\n=== Customers Sharing IP ===");
-    console.table(sharedIpResult.records.map((record) => ({
-      ip: record.get("ip"),
-      customers: record.get("customers"),
-      customerCount: record.get("customerCount"),
-    })));
+    console.table(mapSharedIpRows(sharedIpResult.records));
 
     const sharedCardsResult = await runQuery(driver, fraudQueries.sharedCreditCards);
     console.log("\n=== Shared Credit Cards ===");
-    console.table(sharedCardsResult.records.map((record) => ({
-      cardHash: record.get("cardHash"),
-      usageCount: record.get("usageCount"),
-    })));
+    console.table(mapSharedCardRows(sharedCardsResult.records));
 
     const sharedDeviceResult = await runQuery(driver, fraudQueries.customersSharingDevice);
     console.log("\n=== Customers Sharing Device ===");
@@ -41,11 +35,12 @@ async function main(): Promise<void> {
       cycleAccounts: record.get("cycleAccounts"),
     })));
 
-    const fanOutResult = await runQuery(driver, fraudQueries.fanOutAccounts, {
+    const fanOutParams: FanOutAccountsParams = {
       windowStart: "2026-04-01T10:00:00Z",
       windowEnd: "2026-04-01T11:00:00Z",
       minRecipients: 3,
-    });
+    };
+    const fanOutResult = await runQuery(driver, fraudQueries.fanOutAccounts, fanOutParams);
     console.log("\n=== Fan-out Accounts ===");
     console.table(fanOutResult.records.map((record) => ({
       sourceAccount: record.get("sourceAccount"),
@@ -54,10 +49,11 @@ async function main(): Promise<void> {
       totalOut: record.get("totalOut"),
     })));
 
-    const velocityResult = await runQuery(driver, fraudQueries.highVelocityCards, {
+    const velocityParams: HighVelocityCardsParams = {
       minOrders: 3,
       maxSeconds: 1800,
-    });
+    };
+    const velocityResult = await runQuery(driver, fraudQueries.highVelocityCards, velocityParams);
     console.log("\n=== High-Velocity Cards ===");
     console.table(velocityResult.records.map((record) => ({
       cardHash: record.get("cardHash"),
